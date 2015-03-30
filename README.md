@@ -5,10 +5,10 @@ provided by [Gerencianet](http://gerencianet.com.br).
 
 :warning: **This module is under development and is based on the new API that Gerencianet is about to release. I won't work in production by now.**
 
-[![Build Status](https://travis-ci.org/franciscotfmc/gn-sdk-api-node.svg)](https://travis-ci.org/franciscotfmc/gn-sdk-api-node)
+[![Build Status](https://travis-ci.org/franciscotfmc/gn-api-sdk-node.svg?branch=master)](https://travis-ci.org/franciscotfmc/gn-api-sdk-node)
 [![Code Climate](https://codeclimate.com/github/franciscotfmc/gn-sdk-api-node/badges/gpa.svg)](https://codeclimate.com/github/franciscotfmc/gn-sdk-api-node)
 [![Test Coverage](https://codeclimate.com/github/franciscotfmc/gn-sdk-api-node/badges/coverage.svg)](https://codeclimate.com/github/franciscotfmc/gn-sdk-api-node)
-[![Dependency Status](https://david-dm.org/franciscotfmc/gn-sdk-api-node.svg)](https://david-dm.org/franciscotfmc/gn-sdk-api-node)
+[![Dependency Status](https://david-dm.org/franciscotfmc/gn-api-sdk-node.svg)](https://david-dm.org/franciscotfmc/gn-api-sdk-node)
 
 ## Installation
 
