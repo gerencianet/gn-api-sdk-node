@@ -3,7 +3,7 @@
 A nodejs module for integration of your backend with the payment services
 provided by [Gerencianet](http://gerencianet.com.br).
 
-:warning: **This module is under development and is based on the new API that Gerencianet is about to release. I won't work in production by now.**
+:warning: **This module is under development and is based on the new API that Gerencianet is about to release. It won't work in production by now.**
 
 [![Build Status](https://travis-ci.org/franciscotfmc/gn-api-sdk-node.svg?branch=master)](https://travis-ci.org/franciscotfmc/gn-api-sdk-node)
 [![Code Climate](https://codeclimate.com/github/franciscotfmc/gn-sdk-api-node/badges/gpa.svg)](https://codeclimate.com/github/franciscotfmc/gn-sdk-api-node)
