@@ -191,6 +191,28 @@ describe('GN', function () {
           });
         });
 
+        describe('if server is off', function () {
+          beforeEach(function () {
+            //spy on getAccessToken
+            simple.mock(gn, 'getAccessToken');
+            gn.accessToken = 'myprecious';
+          });
+
+          it('should reject promise', function (done) {
+            var expected = nock(constants.URL.production)
+              .post(constants.ENDPOINTS.charge)
+              .replyWithError('server is off');
+
+            gn.post({}, 'charge')
+              .then(null, function (response) {
+                should(gn.getAccessToken.callCount).equal(0);
+                expected.done();
+                done();
+              })
+              .done();
+          });
+        });
+
         describe('if not expired', function () {
           beforeEach(function () {
             gn.accessToken = 'myprecious';
