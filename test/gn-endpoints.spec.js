@@ -64,6 +64,7 @@ describe('GN', function () {
     }
 
     gn = new GnEndpoints(options);
+    options.sandbox = true;
     _gn = new _GnEndpoints(options);
 
     nock.cleanAll();
