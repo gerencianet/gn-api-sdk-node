@@ -51,15 +51,15 @@ var createChargeResponseOk = {
   }
 }
 
-describe('GN', function() {
-  beforeEach(function() {
+describe('GN', function () {
+  beforeEach(function () {
     options = {
       clientId: 'clientId',
       clientSecret: 'clientSecret',
       sandbox: false
     }
 
-    requestStub.post = function(params, callback) {
+    requestStub.post = function (params, callback) {
       callback(new Error('ops'));
     }
 
@@ -69,15 +69,15 @@ describe('GN', function() {
     nock.cleanAll();
   });
 
-  describe('endpoints', function() {
-    describe('oauth', function() {
-      it('should resolve promise with an access token', function(done) {
+  describe('endpoints', function () {
+    describe('oauth', function () {
+      it('should resolve promise with an access token', function (done) {
         var expected = nock(constants.URL.production)
           .post(constants.ENDPOINTS.authorize)
           .reply(200, accessTokenResponseOk);
 
         gn.getAccessToken()
-          .then(function(response) {
+          .then(function (response) {
             response.should.be.eql(accessTokenResponseOk.access_token)
             expected.done();
             done();
@@ -85,13 +85,13 @@ describe('GN', function() {
           .done();
       });
 
-      it('should reject promise with unauthorized response', function(done) {
+      it('should reject promise with unauthorized response', function (done) {
         var expected = nock(constants.URL.production)
           .post(constants.ENDPOINTS.authorize)
           .reply(401, accessTokenResponseErr);
 
         gn.getAccessToken()
-          .then(function(response) {
+          .then(function (response) {
             response.should.be.eql(accessTokenResponseErr)
             expected.done();
             done();
@@ -100,9 +100,9 @@ describe('GN', function() {
       });
     });
 
-    describe('posting', function() {
-      describe('when accessToken is null', function() {
-        it('should resolve promise', function(done) {
+    describe('posting', function () {
+      describe('when accessToken is null', function () {
+        it('should resolve promise', function (done) {
           expected = nock(constants.URL.production)
             .post(constants.ENDPOINTS.authorize)
             .reply(200, accessTokenResponseOk)
@@ -110,7 +110,7 @@ describe('GN', function() {
             .reply(200, createChargeResponseOk);
 
           gn.post({}, 'charge')
-            .then(function(response) {
+            .then(function (response) {
               response.should.be.eql(createChargeResponseOk)
               expected.done();
               done();
@@ -118,7 +118,7 @@ describe('GN', function() {
             .done();
         });
 
-        it('should reject promise when response is not 200', function(done) {
+        it('should reject promise when response is not 200', function (done) {
           var expected = nock(constants.URL.production)
             .post(constants.ENDPOINTS.authorize)
             .reply(200, accessTokenResponseOk)
@@ -126,7 +126,7 @@ describe('GN', function() {
             .reply(400, createChargeResponseError);
 
           gn.post({}, 'charge')
-            .then(null, function(response) {
+            .then(null, function (response) {
               response.should.be.eql(createChargeResponseError)
               expected.done();
               done();
@@ -134,9 +134,9 @@ describe('GN', function() {
             .done();
         });
 
-        it('should reject promise when an error occurs', function(done) {
-          _gn.charge({})
-            .then(null, function(response) {
+        it('should reject promise when an error occurs', function (done) {
+          _gn.run({})
+            .then(null, function (response) {
               response.should.be.eql(new Error('ops'));
               done();
             })
@@ -144,15 +144,15 @@ describe('GN', function() {
         });
       });
 
-      describe('when accessToken exists', function() {
-        describe('if expired', function() {
-          beforeEach(function() {
+      describe('when accessToken exists', function () {
+        describe('if expired', function () {
+          beforeEach(function () {
             //spy on getAccessToken
             simple.mock(gn, 'getAccessToken');
             gn.accessToken = 'myprecious';
           });
 
-          it('should resolve promise', function(done) {
+          it('should resolve promise', function (done) {
             var expected = nock(constants.URL.production)
               .post(constants.ENDPOINTS.charge)
               .reply(401, createChargeResponseError)
@@ -162,7 +162,7 @@ describe('GN', function() {
               .reply(200, createChargeResponseOk);
 
             gn.post({}, 'charge')
-              .then(function(response) {
+              .then(function (response) {
                 response.should.be.eql(createChargeResponseOk);
                 should(gn.getAccessToken.callCount).equal(1);
                 expected.done();
@@ -171,7 +171,7 @@ describe('GN', function() {
               .done();
           });
 
-          it('should reject promise', function(done) {
+          it('should reject promise', function (done) {
             var expected = nock(constants.URL.production)
               .post(constants.ENDPOINTS.charge)
               .reply(401, createChargeResponseError)
@@ -181,7 +181,7 @@ describe('GN', function() {
               .reply(500, createChargeResponseError);
 
             gn.post({}, 'charge')
-              .then(null, function(response) {
+              .then(null, function (response) {
                 response.should.be.eql(createChargeResponseError);
                 should(gn.getAccessToken.callCount).equal(1);
                 expected.done();
@@ -191,19 +191,19 @@ describe('GN', function() {
           });
         });
 
-        describe('if not expired', function() {
-          beforeEach(function() {
+        describe('if not expired', function () {
+          beforeEach(function () {
             gn.accessToken = 'myprecious';
             simple.mock(gn, 'getAccessToken');
           });
 
-          it('should resolve promise', function(done) {
+          it('should resolve promise', function (done) {
             var expected = nock(constants.URL.production)
               .post(constants.ENDPOINTS.charge)
               .reply(200, createChargeResponseOk);
 
             gn.post({}, 'charge')
-              .then(function(response) {
+              .then(function (response) {
                 response.should.be.eql(createChargeResponseOk);
                 should(gn.getAccessToken.callCount).equal(0);
                 expected.done();
@@ -212,13 +212,13 @@ describe('GN', function() {
               .done();
           });
 
-          it('should reject promise', function(done) {
+          it('should reject promise', function (done) {
             var expected = nock(constants.URL.production)
               .post(constants.ENDPOINTS.charge)
               .reply(400, createChargeResponseOk);
 
             gn.post({}, 'charge')
-              .then(null, function(response) {
+              .then(null, function (response) {
                 response.should.be.eql(createChargeResponseOk);
                 should(gn.getAccessToken.callCount).equal(0);
                 expected.done();
