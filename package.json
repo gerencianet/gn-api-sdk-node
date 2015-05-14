@@ -6,7 +6,7 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "q": "~2.0.3",
+    "q": "~1.4.0",
     "request": "^2.36.0",
     "request-debug": "^0.1.1",
     "oauth": "0.9.12"
