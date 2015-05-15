@@ -18,7 +18,7 @@ var chargeInput = {
   shippings: [{
     name: 'Default Shipping Cost',
     value: 100
-  }],
+  }]
 }
 
 var gerencianet = new Gerencianet(options);
