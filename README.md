@@ -11,6 +11,7 @@ provided by [Gerencianet](http://gerencianet.com.br).
 [![Code Climate](https://codeclimate.com/github/franciscotfmc/gn-sdk-api-node/badges/gpa.svg)](https://codeclimate.com/github/franciscotfmc/gn-sdk-api-node)
 [![Test Coverage](https://codeclimate.com/github/franciscotfmc/gn-sdk-api-node/badges/coverage.svg)](https://codeclimate.com/github/franciscotfmc/gn-sdk-api-node)
 [![Dependency Status](https://david-dm.org/franciscotfmc/gn-api-sdk-node.svg)](https://david-dm.org/franciscotfmc/gn-api-sdk-node)
+[![npm version](https://badge.fury.io/js/gn-api-sdk-node.svg)](http://badge.fury.io/js/gn-api-sdk-node)
 
 ## Installation
 
