@@ -16,7 +16,7 @@ provided by [Gerencianet](http://gerencianet.com.br).
 $ npm install gn-api-sdk-node
 ```
 
-## Usage
+## Basic usage
 
 Require the module:
 
@@ -28,8 +28,8 @@ Set your credentials and whether you want to use sandbox or not:
 
 ```js
 var options = {
-  clientId: 'your_client_id',
-  clientSecret: 'your_client_secret',
+  client_id: 'your_client_id',
+  client_secret: 'your_client_secret',
   sandbox: true
 }
 ```
@@ -40,7 +40,7 @@ Instantiate the module passing your options:
 var gerencianet = new Gerencianet(options);
 ```
 
-Create charge and payment objects:
+Create a charge:
 
 ```js
 var chargeInput = {
@@ -51,93 +51,60 @@ var chargeInput = {
   }]
 }
 
-var clientInput = {
-  charge_id: '',
-  name: '',
-  email: '',
-  document: '',
-  birth: '',
-  phone_number: ''
-}
-
-var paymentMethodInput = {
-  method: 'visa',
-  total: 5000
-}
-
-var paymentInput = {
-  charge_id: '',
-  payment: {
-    credit_card: {
-      parcels: 1,
-      payment_token: 'ed60dae38eb02d3c400ad5e6a35d56ee5b39aeaf',
-      billing_address: {
-        street: 'Rua 3',
-        number: 10,
-        neighborhood: 'Lagoa',
-        zipcode: '35400000',
-        city: 'Ouro Preto',
-        state: 'MG'
-      }
-    }
-  }
-}
-```
-
-Supposing you want to create a customer and generate a transaction, let's
-create the callback functions:
-
-```js
-var createClient = function(response) {
-  console.log('Charge:', response);
-  clientInput.charge_id = response.charge.id;
-  paymentInput.charge_id = response.charge.id;
-  return gerencianet.createClient(clientInput);
-}
-
-var createPayment = function(response) {
-  console.log('Client', response);
-  return gerencianet.createPayment(paymentInput)
-}
-```
-
-The last thing you need to do is call the API for generating a charge, a customer and a payment. It is worth to mention
-that the sdk works with promises, that means you can append the function calls:
-
-```js
 gerencianet
   .createCharge(chargeInput)
-  .then(createClient)
-  .then(createPayment)
-  .then(function(payment) {
-    console.log('Payment:', payment);
+  .then(function(charge) {
+    console.log('Response:', charge);
   })
   .catch(function(err) {
     console.log('Error:', err);
   });
 ```
 
+## Examples
+
+To run the examples, clone this repo and install the dependencies:
+
+```bash
+$ git clone git@github.com:franciscotfmc/gn-api-sdk-node.git
+$ cd gn-api-sdk-node/docs/examples
+$ npm install
+```
+
+Set your oauth keys in credentials.js:
+
+```js
+module.exports = {
+  client_id: 'your_client_id',
+  client_secret: 'your_client_secret'
+}
+```
+
+Then run the example you want:
+
+```bash
+$ node createCharge.js
+```
+
+## Tests
+
+To run the test suite, first install the dependencies, then run `npm test`:
+
+```bash
+$ cd gn-api-sdk-node/
+$ npm install
+$ npm test
+```
+
+## Additional docs
+- [Creating charges with shippings](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/charge-with-shippings.md)
+- [Creating charges associated to customers](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/charge-with-customer.md)
+- [Associating customers to charges subsequently](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/associate-customer.md)
+- [Subscriptions](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/subscriptions.md)
+- [Detailing charges and subscriptions](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/detailing.md)
+- [Paying a charge](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/payments.md)
+- [Notifications](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/notifications.md)
+
 ## License
 
-(The MIT License)
-
-    Copyright (c) 2015 TJ Gerencianet <suportetecnico@gerencianet.com.br>
-
-    Permission is hereby granted, free of charge, to any person obtaining
-    a copy of this software and associated documentation files (the
-    'Software'), to deal in the Software without restriction, including
-    without limitation the rights to use, copy, modify, merge, publish,
-    distribute, sublicense, and/or sell copies of the Software, and to
-    permit persons to whom the Software is furnished to do so, subject to
-    the following conditions:
-
-    The above copyright notice and this permission notice shall be
-    included in all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[MIT](LICENSE)
