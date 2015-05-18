@@ -3,5 +3,9 @@ node_js:
   - "0.12"
 notifications:
   email: false
+addons:
+  code_climate:
+    repo_token: 4483898c259a505c56b244169b5c41222ae25728bf8bfea374d4bbdde87b71a4
 after_script:
-  "npm run test-cov"
+  - npm run test-cov
+  - codeclimate < coverage/lcov.info
