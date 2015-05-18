@@ -32,12 +32,22 @@ Finally, create the charge:
 ```js
 gerencianet
   .createCharge(chargeInput)
-  .then(function(charge) {
-    console.log('Response:', charge);
-  })
-  .catch(function(err) {
-    console.log('Error:', err);
-  });
+  .then(console.log)
+  .catch(console.log);
+```
+
+```js
+{
+  "code": 200,
+  "charge": {
+    "id": 259,
+    "subscription_id": 15,
+    "total": 1000,
+    "status": "new",
+    "custom_id": null,
+    "created_at": "2015-05-18"
+  }
+}
 ```
 
 ## Canceling subscriptions
@@ -50,13 +60,15 @@ gerencianet
     subscription_id: 14,
     customer: true
   })
-  .then(function (subscription) {
-    console.log(subscription);
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .then(console.log)
+  .catch(console.log)
   .done();
+```
+
+```js
+{
+  "code": 200
+}
 ```
 
 The `customer` attribute above indicates who is triggering the cancellation, the customer or the one providing the service. In this case, the customer decided not to continue with the subscription.
