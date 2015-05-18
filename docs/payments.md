@@ -27,8 +27,6 @@ var paymentInput = {
   }
 }
 
-var gerencianet = new Gerencianet(options);
-
 gerencianet
   .createPayment(paymentInput)
   .then(console.log)
@@ -89,8 +87,6 @@ var paymentInput = {
     }
   }
 }
-
-var gerencianet = new Gerencianet(options);
 
 gerencianet
   .createPayment(paymentInput)

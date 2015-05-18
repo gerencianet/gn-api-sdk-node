@@ -34,10 +34,21 @@ Create the charge:
 ```js
 gerencianet
   .createCharge(chargeInput)
-  .then(function(charge) {
-    console.log('Response:', charge);
-  })
-  .catch(function(err) {
-    console.log('Error:', err);
-  });
+  .then(console.log)
+  .catch(console.log);
+```
+
+Check out the response:
+
+```js
+{
+  "code": 200,
+  "charge": {
+    "id": 252,
+    "total": 2220,
+    "status": "new",
+    "custom_id": null,
+    "created_at": "2015-05-18"
+  }
+}
 ```

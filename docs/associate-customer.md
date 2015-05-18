@@ -21,10 +21,14 @@ var customerInput = {
 
 gerencianet
   .createCustomer(customerInput)
-  .then(function (customer) {
-    console.log('Response:', customer);
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  });
+  .then(console.log)
+  .catch(console.log);
+```
+
+If everything went well, the return is just a response with code 200:
+
+```js
+{
+  "code": 200
+}
 ```
