@@ -8,6 +8,9 @@ var nock = require('nock');
 var GnEndpoints = require('../lib/gn-endpoints');
 var constants = require('../lib/gn-constants');
 
+constants.URL.production = 'http://localhost'
+constants.URL.sandbox = 'http://localhost'
+
 var gn = {}
 var _gn = {}
 var options = {}
@@ -15,7 +18,8 @@ var requestStub = {};
 var expected = {}
 
 var _GnEndpoints = proxyquire('../lib/gn-endpoints', {
-  'request': requestStub
+  'request': requestStub,
+  'constants': constants
 });
 
 var accessTokenResponseOk = {
