@@ -43,7 +43,7 @@ var paymentInput = {
   payment: {
     credit_card: {
       parcels: 1,
-      payment_token: '8047d6ee4633ad33d6db70ffd403d74bc70fb707',
+      payment_token: 'fec500b1f3eb16615ca61f7c4781f51dcde49131',
       billing_address: {
         street: 'Street 3',
         number: 10,
@@ -59,24 +59,28 @@ var paymentInput = {
 var gerencianet = new Gerencianet(options);
 
 var createCustomer = function (response) {
-  console.log('Charge:', response);
-  customerInput.charge_id = response.charge.id;
-  paymentInput.charge_id = response.charge.id;
-  return gerencianet.createCustomer(customerInput);
+  console.log(response);
+  if (response.code === 200) {
+    customerInput.charge_id = response.charge.id;
+    paymentInput.charge_id = response.charge.id;
+    return gerencianet.createCustomer(customerInput);
+  } else {
+    throw new Error();
+  }
 }
 
 var createPayment = function (response) {
-  console.log('Client', response);
-  return gerencianet.createPayment(paymentInput)
+  console.log(response);
+  if (response.code === 200) {
+    return gerencianet.createPayment(paymentInput)
+  } else {
+    throw new Error();
+  }
 }
 
 gerencianet
   .createCharge(chargeInput)
   .then(createCustomer)
   .then(createPayment)
-  .then(function (payment) {
-    console.log('Payment:', payment);
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  });
+  .then(console.log)
+  .catch(console.log);

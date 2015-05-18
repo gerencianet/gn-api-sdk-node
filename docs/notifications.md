@@ -18,13 +18,18 @@ gerencianet
     notification_url: 'http://google.com'
   })
   .then(function (notification) {
-    console.log('Response:',
-      util.inspect(notification, false, null));
+    console.log(util.inspect(notification, false, null));
   })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .catch(console.log)
   .done();
+```
+
+Response:
+
+```js
+{
+  "code": 200
+}
 ```
 
 Given that a charge has a valid `notification_url`, when the notification time comes you'll receive a post with a `token`. This token must be used to get the notification payload data.
@@ -40,12 +45,30 @@ app.post('/notifications', function(req, res) {
       notification: notificationToken
     })
     .then(function (notification) {
-      console.log('Response:',
-        util.inspect(notification, false, null));
+      console.log(util.inspect(notification, false, null));
     })
-    .catch(function (err) {
-      console.log('Error:', err);
-    })
+    .catch(console.log)
     .done();
 });
 ```
+
+Response:
+
+```js
+{
+  "code": 200,
+  "charge": {
+    "id": 233,
+    "subscription_id": 12,
+    "total": 2000,
+    "status": "new",
+    "custom_id": null,
+    "created_at": "2015-05-14",
+    "history": [
+      {
+        "status": "new",
+        "timestamp": "2015-05-14 15:39:14"
+      }
+    ]
+  }
+}

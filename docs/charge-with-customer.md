@@ -36,12 +36,23 @@ Create the charge:
 ```js
 gerencianet
   .createCharge(chargeInput)
-  .then(function(charge) {
-    console.log('Response:', charge);
-  })
-  .catch(function(err) {
-    console.log('Error:', err);
-  });
+  .then(console.log)
+  .catch(console.log);
+```
+
+Check out the response:
+
+```js
+{
+  "code": 200,
+  "charge": {
+    "id": 253,
+    "total": 2000,
+    "status": "new",
+    "custom_id": null,
+    "created_at": "2015-05-18"
+  }
+}
 ```
 
 Observe that charges have an optional param inside `metadata` called `notification_url`. Each charge can have it's own `notification_url` that will be used for notifications once things happen with charges status, as when it's payment was approved, for example. More about notifications [here](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/notifications.md).
