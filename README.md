@@ -14,7 +14,6 @@ provided by [Gerencianet](http://gerencianet.com.br).
 [![npm version](https://badge.fury.io/js/gn-api-sdk-node.svg)](http://badge.fury.io/js/gn-api-sdk-node)
 
 
-
 ## Installation
 
 ```bash
@@ -107,6 +106,7 @@ $ npm test
 - [Associating customers to charges subsequently](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/associate-customer.md)
 - [Subscriptions](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/subscriptions.md)
 - [Detailing charges and subscriptions](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/detailing.md)
+- [Listing installments in advance](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/payment-methods.md)
 - [Paying a charge](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/payments.md)
 - [Notifications](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/notifications.md)
 
