@@ -1,6 +1,6 @@
 # gn-api-sdk-node
 
-A nodejs module for integration of your backend with the payment services
+> A nodejs module for integration of your backend with the payment services
 provided by [Gerencianet](http://gerencianet.com.br).
 
 [![NPM](https://nodei.co/npm/gn-api-sdk-node.png?downloads=true&stars=true)](https://nodei.co/npm/gn-api-sdk-node/)
@@ -108,6 +108,10 @@ $ npm test
 - [Paying a charge](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/payments.md)
 - [Notifications](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/notifications.md)
 - [All in one](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/all-in-one.md)
+
+## Changelog
+
+[CHANGELOG](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/CHANGELOG.md)
 
 ## License
 
