@@ -1,10 +1,20 @@
 {
   "name": "gn-api-sdk-node",
   "description": "Module for integration with Gerencianet API",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Francisco Carvalho <f.thiene@gmail.com>",
-  "private": true,
   "license": "MIT",
+  "repository": "franciscotfmc/gn-api-sdk-node",
+  "homepage": "https://github.com/franciscotfmc/gn-api-sdk-node",
+  "keywords": [
+    "gerencianet",
+    "pagamentos",
+    "payment",
+    "sdk",
+    "integração",
+    "integration",
+    "api"
+  ],
   "dependencies": {
     "q": "~1.4.0",
     "request": "^2.36.0",
@@ -22,6 +32,9 @@
     "sinon": "~1.14.1",
     "istanbul": "~0.3.13",
     "codeclimate-test-reporter": "0.0.4"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
   },
   "scripts": {
     "start": "node app.js",
