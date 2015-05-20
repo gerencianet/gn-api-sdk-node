@@ -5,7 +5,7 @@ notifications:
   email: false
 addons:
   code_climate:
-    repo_token: 4483898c259a505c56b244169b5c41222ae25728bf8bfea374d4bbdde87b71a4
+    repo_token: 4ac7e075263b1faa82dfab1c8bfe1ec0c3b1724c460945aa334ec01a9b0f74ee
 after_script:
   - npm run test-cov
   - codeclimate < coverage/lcov.info
