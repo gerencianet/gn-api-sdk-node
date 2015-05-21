@@ -17,7 +17,7 @@ var tomorrow = moment()
 var paymentInput = {
   charge_id: 242,
   payment: {
-    bol: {
+    banking_billet: {
       expire_at: tomorrow
     }
   }

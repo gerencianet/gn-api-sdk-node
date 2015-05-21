@@ -33,17 +33,12 @@ var customerInput = {
   phone_number: '5044916523'
 }
 
-var paymentMethodInput = {
-  method: 'visa',
-  total: 5000
-}
-
 var paymentInput = {
   charge_id: 223,
   payment: {
     credit_card: {
-      parcels: 1,
-      payment_token: 'fec500b1f3eb16615ca61f7c4781f51dcde49131',
+      installments: 1,
+      payment_token: '71d0821e79e5d54e17472a9ef1dce3d0a715a39d',
       billing_address: {
         street: 'Street 3',
         number: 10,

@@ -35,7 +35,7 @@ var paymentInput = {
   charge_id: 223,
   payment: {
     credit_card: {
-      parcels: 1,
+      installments: 1,
       payment_token: 'fec500b1f3eb16615ca61f7c4781f51dcde49131',
       billing_address: {
         street: 'Street 3',

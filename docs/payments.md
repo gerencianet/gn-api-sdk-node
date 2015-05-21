@@ -7,11 +7,11 @@ var Gerencianet = require('gn-api-sdk-node');
 var gerencianet = new Gerencianet(options);
 ```
 
-There are two ways of giving sequence to a charge. One can generate a boleto so it is payable until its due date, or one can use its credit card to approve the payment.
+There are two ways of giving sequence to a charge. One can generate a **banking billet** so it is payable until its due date, or one can use its **credit card** to approve the payment.
 
-### 1. Boletos
+### 1. Banking billets
 
-Generating a bol from a charge is deadly simple. Provide the charge id and an optional expiration date:
+Generating banking billets from a charge is deadly simple. Provide the charge id and an optional expiration date:
 
 ```js
 var tenDaysFromNow = moment()
@@ -21,7 +21,7 @@ var tenDaysFromNow = moment()
 var paymentInput = {
   charge_id: 242,
   payment: {
-    bol: {
+    banking_billet: {
       expire_at: tenDaysFromNow
     }
   }
@@ -34,18 +34,18 @@ gerencianet
   .done();
 ```
 
-If you don't need to supply the `expire_at` attribute, keep the `bol` object empty like this:
+If you don't need an expiration date, keep the `banking_billet` object empty like this:
 
 ```js
 var paymentInput = {
   charge_id: 242,
   payment: {
-    bol: {}
+    banking_billet: {}
   }
 }
 ```
 
-You'll receive the payment info in the callback, such as the barcode and the bol link:
+You'll receive the payment info in the callback, such as the barcode and the billet link:
 
 ```js
 {
@@ -53,7 +53,7 @@ You'll receive the payment info in the callback, such as the barcode and the bol
   "response": {
     "transaction": 137,
     "total": 1150,
-    "payment": "bol",
+    "payment": "banking_billet",
     "barcode": "00190.00009 01523.894002 00059.161182 9 64350000001150",
     "link": "https://visualizacao.gerencianet.com.br/emissao/28333_2139_RRABRA7/A4XB-28333-59161-BRANAE4",
     "expire_at": "2015-05-21"
@@ -63,7 +63,7 @@ You'll receive the payment info in the callback, such as the barcode and the bol
 
 ### 2. Credit card
 
-The most common payment method is to use a credit card in order to make things happen faster. Paying a charge with a credit card in Gerencianet is as simples as generating a boleto, as seen above.
+The most common payment method is to use a credit card in order to make things happen faster. Paying a charge with a credit card in Gerencianet is as simples as generating a banking billet, as seen above.
 
 The difference here is that we need to provide some extra information, as a `billing_address` and a `payment_token`. The former is used to make an anti-fraud analyze before accepting/appoving the payment, the latter identifies a credit card at Gerencianet, so that you don't need to bother about keeping track of credit card numbers. The `installments` attribute is self-explanatory.
 
@@ -95,7 +95,7 @@ gerencianet
   .done();
 ```
 
-If everything went well, the response will come with the total value, installments number e the value of each installment:
+If everything went well, the response will come with the total value, installments number and the value of each installment:
 
 ```js
 {

@@ -98,13 +98,14 @@ $ npm test
 ```
 
 ## Additional docs
+
 - [Creating charges with shippings](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/charge-with-shippings.md)
 - [Creating charges associated to customers](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/charge-with-customer.md)
 - [Creating charges with marketplace](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/charge-with-marketplace.md)
 - [Associating customers to charges subsequently](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/associate-customer.md)
 - [Subscriptions](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/subscriptions.md)
 - [Detailing charges and subscriptions](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/detailing.md)
-- [Listing installments in advance](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/payment-methods.md)
+- [Listing installments in advance](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/payment-data.md)
 - [Paying a charge](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/payments.md)
 - [Notifications](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/notifications.md)
 - [All in one](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/all-in-one.md)

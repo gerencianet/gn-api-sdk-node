@@ -10,15 +10,15 @@ var options = {
   sandbox: true
 }
 
-var paymentMethodInput = {
-  method: 'visa',
+var paymentDataInput = {
+  type: 'visa',
   total: 5000
 }
 
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .getPaymentMethods(paymentMethodInput)
+  .getPaymentData(paymentDataInput)
   .then(function (installments) {
     console.log('Response:',
       util.inspect(installments, false, null));
