@@ -1,4 +1,4 @@
-## Payment methods - listing installments
+## Payment data - listing installments
 
 If you ever need to get the total value for a charge, including rates and interests, as well as each installment value, even before the payment itself, you can.
 
@@ -9,15 +9,15 @@ Sometimes you need to check the total for making a discount, or simple to show a
 Stop bragging about. Here is the code:
 
 ```js
-var paymentMethodInput = {
-  method: 'visa',
+var paymentDataInput = {
+  type: 'visa',
   total: 5000
 }
 
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .getPaymentMethods(paymentMethodInput)
+  .getPaymentData(paymentDataInput)
   .then(console.log)
   .catch(console.log);
 ```
@@ -27,7 +27,7 @@ And the response:
 ```js
 {
   "code": 200,
-  "method": {
+  "data": {
     "rate": 150,
     "interest_percentage": 0,
     "name": "visa",
@@ -109,13 +109,13 @@ And the response:
 }
 ```
 
-Observe that the response comes with an installments array of 12 positions. Each position matches one possible option of installment number, containing its value in currency and integer forms. Use it any way you need.
+Observe that the response comes with an installments array of 12 positions at maximum. Each position matches one possible option of installment number, containing its value in currency and integer forms. The number of installments will vary according to the selected brand. Use it any way that suits your needs.
 
 If you're curious about what would happen if you did this:
 
 ```js
-var paymentMethodInput = {
-  method: 'bol',
+var paymentDataInput = {
+  type: 'banking_billet',
   total: 5000
 }
 ```
@@ -125,7 +125,7 @@ Here it goes:
 ```js
 {
   "code": 200,
-  "method": {
+  "data": {
     "total": 5150,
     "rate": 150,
     "currency": "51,50"
@@ -133,4 +133,4 @@ Here it goes:
 }
 ```
 
-As the payment method being a boleto, the response comes with just the total value and the rate that was applied. The total value comes also parsed in currency, just in case.
+As the payment type being *banking billet*, the response comes with just the total value and the rate that was applied. The total value comes also parsed in currency, just in case.
