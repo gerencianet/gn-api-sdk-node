@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "0.12"
+notifications:
+  email: false
+env:
+  secure: "uwKU7ck5iVKx/DpsIldZqf8vtfvtLrD7Cqc2KTNlS4mQORI/gmwLaocFr7zJqNajlqKOF6vZDG7Rtk7VNVkejVaf4pEBhgH9J5V965JubYJlKP8CKmvwmkb0GVyjYCZDM2aEWRs0DqRM7uucraVbdQVMe+SU0x/savGdBQbrxvE="
+after_script:
+  - npm run test-cov
+  - codeclimate < coverage/lcov.info
