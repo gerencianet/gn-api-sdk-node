@@ -7,7 +7,7 @@ provided by [Gerencianet](http://gerencianet.com.br).
 
 :warning: **This module is under development and is based on the new API that Gerencianet is about to release. It won't work in production by now.**
 
-[![Build Status](https://travis-ci.org/gerencianet/gn-api-sdk-node.svg?branch=v0.0.6)](https://travis-ci.org/gerencianet/gn-api-sdk-node)
+[![Build Status](https://travis-ci.org/gerencianet/gn-api-sdk-node.svg)](https://travis-ci.org/gerencianet/gn-api-sdk-node)
 [![Code Climate](https://codeclimate.com/github/gerencianet/gn-api-sdk-node/badges/gpa.svg)](https://codeclimate.com/github/gerencianet/gn-api-sdk-node)
 [![Test Coverage](https://codeclimate.com/github/gerencianet/gn-api-sdk-node/badges/coverage.svg)](https://codeclimate.com/github/gerencianet/gn-api-sdk-node/coverage)
 [![Dependency Status](https://david-dm.org/gerencianet/gn-api-sdk-node.svg)](https://david-dm.org/gerencianet/gn-api-sdk-node)
