@@ -26,8 +26,8 @@ Check out the response:
 ```js
 {
   "code": 200,
-  "charge": {
-    "id": 233,
+  "data": {
+    "charge_id": 233,
     "subscription_id": 12,
     "total": 2000,
     "status": "new",
@@ -71,8 +71,8 @@ gerencianet
 ```js
 {
   "code": 200,
-  "subscription": {
-    "id": 12,
+  "data": {
+    "subscription_id": 12,
     "value": 2000,
     "status": "new",
     "payment_method": null,
