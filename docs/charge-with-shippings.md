@@ -43,8 +43,8 @@ Check out the response:
 ```js
 {
   "code": 200,
-  "charge": {
-    "id": 252,
+  "data": {
+    "charge_id": 252,
     "total": 2220,
     "status": "new",
     "custom_id": null,

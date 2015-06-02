@@ -7,46 +7,55 @@ var Gerencianet = require('gn-api-sdk-node');
 var gerencianet = new Gerencianet(options);
 ```
 
-If you ever have to recurrently charge your clients, you can create a different kind of charge, one that belongs to a subscription. This way, subsequent charges will be automatically created and charged in your customers credit card, based on the interval and repetitions supplied in the subscription object.
+If you ever have to recurrently charge your clients, you can create a different kind of charge, one that belongs to a subscription. This way, subsequent charges will be automatically created and charged in your customers credit card, based on the interval and repetitions supplied in a plan configuration.
+
+The `repeats` parameter defines how many times the transaction will be repeated. If you don't pass it, the subscription will create charges indefinitely.
+
+The `interval` parameter defines the interval, in months, that a charge has to be generated. The minimum value is 1, and the maximum is 24. So, define "1" if you want monthly creations for example.
 
 It's worth to mention that this mechanics is triggered only if the customer commits the subscription. In other words, it takes effect when the customer pays the first charge.
 
-The example below will create a charge including the subscription attributes. This attributes specify that we'll have a subscription that lasts three months, given the one month interval:
+At first, you need to to create a plan. Then, you create a charge passing a plan_id to generate a subscription. You can use the same plan_id whenever you want.
+
+```js
+var planInput = {
+    name: 'My first plan',
+    repeats: 24,
+    interval: 2
+}
+
+gerencianet
+  .createPlan(planInput)
+  .then(function (plan) {
+    console.log('Response:', plan);
+  })
+  .catch(function (err) {
+    console.log('Error:', err);
+  })
+  .done();
+```
+
+Creating the charge:
 
 ```js
 var chargeInput = {
   items: [{
-    name: 'Product A',
+    name: 'Product 1',
     value: 1000,
     amount: 2
   }],
-  subscription: {
-    interval: 1,
-    repeats: 3
-  }
+  plan_id: 1
 }
-```
 
-Finally, create the charge:
-
-```js
 gerencianet
   .createCharge(chargeInput)
-  .then(console.log)
-  .catch(console.log);
-```
-
-```js
-{
-  "code": 200,
-  "charge": {
-    "id": 259,
-    "subscription_id": 15,
-    "total": 1000,
-    "status": "new",
-    "custom_id": null,
-    "created_at": "2015-05-18"
-  }
+  .then(function (charge) {
+    console.log('Response:', charge);
+  })
+  .catch(function (err) {
+    console.log('Error:', err);
+  })
+  .done();
 }
 ```
 
@@ -72,3 +81,21 @@ gerencianet
 ```
 
 The `customer` attribute above indicates who is triggering the cancellation, the customer or the one providing the service. In this case, the customer decided not to continue with the subscription.
+
+## Deleting plans
+*(works just for plans that hasn't a subscription associated):*
+
+```js
+gerencianet
+  .deletePlan({
+    plan_id: 1
+  })
+  .then(function (plan) {
+    console.log('Response:',
+      util.inspect(plan, false, null));
+  })
+  .catch(function (err) {
+    console.log('Error:', err);
+  })
+  .done();
+```

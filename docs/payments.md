@@ -50,8 +50,8 @@ You'll receive the payment info in the callback, such as the barcode and the bil
 ```js
 {
   "code": 200,
-  "response": {
-    "transaction": 137,
+  "data": {
+    "charge_id": 242,
     "total": 1150,
     "payment": "banking_billet",
     "barcode": "00190.00009 01523.894002 00059.161182 9 64350000001150",
@@ -100,12 +100,12 @@ If everything went well, the response will come with the total value, installmen
 ```js
 {
   "code": 200,
-  "response": {
-   "transaction": 139,
-   "total": 1150,
-   "payment": "credit_card",
-   "installments": 1,
-   "installment_value": 1150
+  "data": {
+    "charge_id": 223,
+    "total": 1150,
+    "payment": "credit_card",
+    "installments": 1,
+    "installment_value": 1150
   }
 }
 ```

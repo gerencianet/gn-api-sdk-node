@@ -9,26 +9,39 @@ var options = {
   sandbox: true
 }
 
+var planInput = {
+    name: 'My first plan',
+    repeats: 24,
+    interval: 2
+}
+
 var chargeInput = {
   items: [{
     name: 'Product 1',
     value: 1000,
     amount: 2
-  }],
-  subscription: {
-    interval: 1,
-    repeats: 2
-  }
+  }]
 }
 
 var gerencianet = new Gerencianet(options);
 
+var createPlanCallback = function (response) {
+  console.log(response);
+  if (response.code === 200) {
+    chargeInput.plan_id = response.plan.id;
+    return chargeInput;
+  } else {
+    throw new Error();
+  }
+}
+
+var createChargeCallback = function (response) {
+  return gerencianet.createCharge(chargeInput)
+}
+
 gerencianet
-  .createCharge(chargeInput)
-  .then(function (charge) {
-    console.log('Response:', charge);
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
-  .done();
+  .createPlan(planInput)
+  .then(createPlanCallback)
+  .then(createChargeCallback)
+  .then(console.log)
+  .catch(console.log);

@@ -91,8 +91,8 @@ Response:
 
 ```js
 { "code": 200,
-  "charge": {
-     "id": 260,
+  "data": {
+     "charge_id": 260,
      "total": 2250,
      "status": 'new',
      "custom_id": null,
@@ -103,8 +103,8 @@ Response:
 { "code": 200 } //customer created
 
 { "code": 200,
-  "response": {
-     "transaction": 143,
+  "data": {
+     "charge_id": 260,
      "total": 2400,
      "payment": "credit_card",
      "installments": 1,
@@ -112,7 +112,6 @@ Response:
   }
 } //payment created
 ```
-
 
 If we embbed the `customerInput` inside `chargeInput`, we can skip the second step and go straight to payment:
 
@@ -144,8 +143,8 @@ Response:
 
 ```js
 { "code": 200,
-  "charge": {
-     "id": 260,
+  "data": {
+     "charge_id": 260,
      "total": 2250,
      "status": 'new',
      "custom_id": null,
@@ -154,8 +153,8 @@ Response:
 } //charge created
 
 { "code": 200,
-  "response": {
-     "transaction": 143,
+  "data": {
+     "charge_id": 260,
      "total": 2400,
      "payment": "credit_card",
      "installments": 1,
