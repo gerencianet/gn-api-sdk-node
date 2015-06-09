@@ -1,3 +1,7 @@
+# 0.0.9
+
+- Updated: gn-sdk - added createPlan
+
 # 0.0.8
 
 - Updated: docs
