@@ -111,10 +111,10 @@ describe('GN', function () {
           expected = nock(constants.URL.production)
             .post(constants.ENDPOINTS.authorize)
             .reply(200, accessTokenResponseOk)
-            .post(constants.ENDPOINTS.charge)
+            .post(constants.ENDPOINTS.createCharge)
             .reply(200, createChargeResponseOk);
 
-          gn.post({}, 'charge')
+          gn.post({}, 'createCharge')
             .then(function (response) {
               response.should.be.eql(createChargeResponseOk)
               expected.done();
@@ -127,10 +127,10 @@ describe('GN', function () {
           var expected = nock(constants.URL.production)
             .post(constants.ENDPOINTS.authorize)
             .reply(200, accessTokenResponseOk)
-            .post(constants.ENDPOINTS.charge)
+            .post(constants.ENDPOINTS.createCharge)
             .reply(400, createChargeResponseError);
 
-          gn.post({}, 'charge')
+          gn.post({}, 'createCharge')
             .then(null, function (response) {
               response.should.be.eql(createChargeResponseError)
               expected.done();
@@ -159,14 +159,14 @@ describe('GN', function () {
 
           it('should resolve promise', function (done) {
             var expected = nock(constants.URL.production)
-              .post(constants.ENDPOINTS.charge)
+              .post(constants.ENDPOINTS.createCharge)
               .reply(401, createChargeResponseError)
               .post(constants.ENDPOINTS.authorize)
               .reply(200, accessTokenResponseOk)
-              .post(constants.ENDPOINTS.charge)
+              .post(constants.ENDPOINTS.createCharge)
               .reply(200, createChargeResponseOk);
 
-            gn.post({}, 'charge')
+            gn.post({}, 'createCharge')
               .then(function (response) {
                 response.should.be.eql(createChargeResponseOk);
                 should(gn.getAccessToken.callCount).equal(1);
@@ -178,14 +178,14 @@ describe('GN', function () {
 
           it('should reject promise', function (done) {
             var expected = nock(constants.URL.production)
-              .post(constants.ENDPOINTS.charge)
+              .post(constants.ENDPOINTS.createCharge)
               .reply(401, createChargeResponseError)
               .post(constants.ENDPOINTS.authorize)
               .reply(200, accessTokenResponseOk)
-              .post(constants.ENDPOINTS.charge)
+              .post(constants.ENDPOINTS.createCharge)
               .reply(500, createChargeResponseError);
 
-            gn.post({}, 'charge')
+            gn.post({}, 'createCharge')
               .then(null, function (response) {
                 response.should.be.eql(createChargeResponseError);
                 should(gn.getAccessToken.callCount).equal(1);
@@ -205,10 +205,10 @@ describe('GN', function () {
 
           it('should reject promise', function (done) {
             var expected = nock(constants.URL.production)
-              .post(constants.ENDPOINTS.charge)
+              .post(constants.ENDPOINTS.createCharge)
               .replyWithError('server is off');
 
-            gn.post({}, 'charge')
+            gn.post({}, 'createCharge')
               .then(null, function (response) {
                 should(gn.getAccessToken.callCount).equal(0);
                 expected.done();
@@ -226,10 +226,10 @@ describe('GN', function () {
 
           it('should resolve promise', function (done) {
             var expected = nock(constants.URL.production)
-              .post(constants.ENDPOINTS.charge)
+              .post(constants.ENDPOINTS.createCharge)
               .reply(200, createChargeResponseOk);
 
-            gn.post({}, 'charge')
+            gn.post({}, 'createCharge')
               .then(function (response) {
                 response.should.be.eql(createChargeResponseOk);
                 should(gn.getAccessToken.callCount).equal(0);
@@ -241,10 +241,10 @@ describe('GN', function () {
 
           it('should reject promise', function (done) {
             var expected = nock(constants.URL.production)
-              .post(constants.ENDPOINTS.charge)
+              .post(constants.ENDPOINTS.createCharge)
               .reply(400, createChargeResponseOk);
 
-            gn.post({}, 'charge')
+            gn.post({}, 'createCharge')
               .then(null, function (response) {
                 response.should.be.eql(createChargeResponseOk);
                 should(gn.getAccessToken.callCount).equal(0);
