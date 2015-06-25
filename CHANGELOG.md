@@ -1,3 +1,9 @@
+# 0.0.10
+
+- Updated: gn-constants - added new endpoints
+- Refactored: gn-sdk - loop through gn-constants endpoints and create the prototype functions
+- Updated: docs
+
 # 0.0.9
 
 - Updated: gn-sdk - added createPlan
