@@ -23,7 +23,7 @@ var chargeInput = {
     email: 'oldbuck@gerencianet.com.br',
     document: '04267484171',
     birth: '1977-01-15',
-    phone_number: '5044916523'
+    phone_number: '5144916523'
   },
   metadata: {
     notification_url: 'http://google.com'

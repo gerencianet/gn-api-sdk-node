@@ -9,24 +9,31 @@ var options = {
   sandbox: true
 }
 
-var customerInput = {
-  charge_id: 223,
+var carnetInput = {
+  items: [{
+    name: 'Carnet Item 1',
+    value: 1000,
+    amount: 2
+  }],
   customer: {
     name: 'Gorbadoc Oldbuck',
     email: 'oldbuck@gerencianet.com.br',
     document: '04267484171',
     birth: '1977-01-15',
     phone_number: '5144916523'
-  }
+  },
+  repeats: 12,
+  split_items: false
 }
 
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .createCustomer(customerInput)
-  .then(function (customer) {
-    console.log('Response:', customer);
+  .createCarnet(carnetInput)
+  .then(function (carnet) {
+    console.log('Response:', carnet);
   })
   .catch(function (err) {
     console.log('Error:', err);
-  });
+  })
+  .done();

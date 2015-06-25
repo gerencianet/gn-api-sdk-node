@@ -26,11 +26,13 @@ var chargeInput = {
 
 var customerInput = {
   charge_id: 223,
-  name: 'Gorbadoc Oldbuck',
-  email: 'oldbuck@gerencianet.com.br',
-  document: '04267484171',
-  birth: '1977-01-15',
-  phone_number: '5044916523'
+  customer: {
+    name: 'Gorbadoc Oldbuck',
+    email: 'oldbuck@gerencianet.com.br',
+    document: '04267484171',
+    birth: '1977-01-15',
+    phone_number: '5144916523'
+  }
 }
 
 var paymentInput = {
@@ -38,7 +40,7 @@ var paymentInput = {
   payment: {
     credit_card: {
       installments: 1,
-      payment_token: '71d0821e79e5d54e17472a9ef1dce3d0a715a39d',
+      payment_token: '6f4c6e7007531a4e2e4d8dabfe49104ac3912c46',
       billing_address: {
         street: 'Street 3',
         number: 10,
@@ -55,22 +57,14 @@ var gerencianet = new Gerencianet(options);
 
 var createCustomer = function (response) {
   console.log(response);
-  if (response.code === 200) {
-    customerInput.charge_id = response.charge.id;
-    paymentInput.charge_id = response.charge.id;
-    return gerencianet.createCustomer(customerInput);
-  } else {
-    throw new Error();
-  }
+  customerInput.charge_id = response.data.charge_id;
+  paymentInput.charge_id = response.data.charge_id;
+  return gerencianet.createCustomer(customerInput);
 }
 
 var createPayment = function (response) {
   console.log(response);
-  if (response.code === 200) {
-    return gerencianet.createPayment(paymentInput)
-  } else {
-    throw new Error();
-  }
+  return gerencianet.createPayment(paymentInput)
 }
 
 gerencianet

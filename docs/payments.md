@@ -61,6 +61,23 @@ You'll receive the payment info in the callback, such as the barcode and the bil
 }
 ```
 
+If you want the banking billet to have extra instructions, it's possible to send a maximum of 4 different instructions with a maximum of 90 caracters, just as follows:
+
+```js
+var paymentInput = {
+  charge_id: 242,
+  payment: {
+    banking_billet: {
+      expire_at: tenDaysFromNow,
+      instructions: [
+        "Pay only with money",
+        "Do not pay with gold"
+      ]
+    }
+  }
+}
+```
+
 ### 2. Credit card
 
 The most common payment method is to use a credit card in order to make things happen faster. Paying a charge with a credit card in Gerencianet is as simples as generating a banking billet, as seen above.

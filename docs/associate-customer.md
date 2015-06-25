@@ -12,12 +12,15 @@ If you created charges without customers because you didn't know them or was pla
 ```js
 var customerInput = {
   charge_id: 223,
-  name: 'Gorbadoc Oldbuck',
-  email: 'oldbuck@gerencianet.com.br',
-  document: '04267484171',
-  birth: '1977-01-15',
-  phone_number: '5044916523'
+  customer: {
+    name: 'Gorbadoc Oldbuck',
+    email: 'oldbuck@gerencianet.com.br',
+    document: '04267484171',
+    birth: '1977-01-15',
+    phone_number: '5144916523'
+  }
 }
+
 
 gerencianet
   .createCustomer(customerInput)
