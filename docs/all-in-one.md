@@ -24,11 +24,13 @@ var chargeInput = {
 
 var customerInput = {
   charge_id: 223,
-  name: 'Gorbadoc Oldbuck',
-  email: 'oldbuck@gerencianet.com.br',
-  document: '04267484171',
-  birth: '1977-01-15',
-  phone_number: '5044916523'
+  customer: {
+    name: 'Gorbadoc Oldbuck',
+    email: 'oldbuck@gerencianet.com.br',
+    document: '04267484171',
+    birth: '1977-01-15',
+    phone_number: '5144916523'
+  }
 }
 
 var paymentInput = {
@@ -55,22 +57,14 @@ Create the callback functions for charge and customer:
 ```js
 var createCustomer = function (response) {
   console.log(response);
-  if (response.code === 200) {
-    customerInput.charge_id = response.charge.id;
-    paymentInput.charge_id = response.charge.id;
-    return gerencianet.createCustomer(customerInput);
-  } else {
-    throw new Error();
-  }
+  customerInput.charge_id = response.data.charge_id;
+  paymentInput.charge_id = response.data.charge_id;
+  return gerencianet.createCustomer(customerInput);
 }
 
 var createPayment = function (response) {
   console.log(response);
-  if (response.code === 200) {
-    return gerencianet.createPayment(paymentInput)
-  } else {
-    throw new Error();
-  }
+  return gerencianet.createPayment(paymentInput)
 }
 ```
 

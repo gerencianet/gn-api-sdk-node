@@ -10,12 +10,12 @@ var options = {
 }
 
 var planInput = {
-    name: 'My first plan',
-    repeats: 24,
-    interval: 2
+  name: 'My first plan',
+  repeats: 24,
+  interval: 2
 }
 
-var chargeInput = {
+var subscriptionInput = {
   items: [{
     name: 'Product 1',
     value: 1000,
@@ -28,15 +28,15 @@ var gerencianet = new Gerencianet(options);
 var createPlanCallback = function (response) {
   console.log(response);
   if (response.code === 200) {
-    chargeInput.plan_id = response.plan.id;
-    return chargeInput;
+    subscriptionInput.plan_id = response.data.plan_id;
+    return subscriptionInput;
   } else {
     throw new Error();
   }
 }
 
 var createChargeCallback = function (response) {
-  return gerencianet.createCharge(chargeInput)
+  return gerencianet.createSubscription(subscriptionInput)
 }
 
 gerencianet
