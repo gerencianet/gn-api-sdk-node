@@ -101,24 +101,24 @@ $ npm test
 
 ### Charges
 
-- [Creating charges](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charges.md)*
-- [Associating a customer](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/associate-customer.md)*
-- [Paying a charge](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-payment.md)*
-- [Detailing charges](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-detailing.md)*
-- [Updating informations](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-update.md)*
+- [Creating charges](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charges.md)
+- [Associating a customer](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/associate-customer.md)
+- [Paying a charge](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-payment.md)
+- [Detailing charges](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-detailing.md)
+- [Updating informations](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-update.md)
 
 ### Carnets
 
-- [Creating carnets](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnets.md)*
-- [Detailing carnets](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnets-detailing.md)*
-- [Updating informations](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-update.md)*
+- [Creating carnets](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnets.md)
+- [Detailing carnets](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnets-detailing.md)
+- [Updating informations](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-update.md)
 
 ### Subscriptions
 
-- [Creating subscriptions](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/subscriptions.md)*
-- [Paying a subscription](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/subscription-payment.md)*
-- [Detailing subscriptions](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/subscription-detailing.md)*
-- [Updating informations](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/subscription-update.md)*
+- [Creating subscriptions](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/subscriptions.md)
+- [Paying a subscription](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/subscription-payment.md)
+- [Detailing subscriptions](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/subscription-detailing.md)
+- [Updating informations](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/subscription-update.md)
 
 ### Marketplace
 
