@@ -1,7 +1,7 @@
 'use strict';
 
+var util = require('util');
 var Gerencianet = require('gn-api-sdk-node');
-var moment = require('moment');
 var credentials = require('./credentials');
 
 var options = {
@@ -10,26 +10,18 @@ var options = {
   sandbox: true
 }
 
-var tomorrow = moment()
-  .add(1, 'days')
-  .format('YYYY-MM-DD 00:00:00');
-
-var paymentInput = {
-  charge_id: 242,
-  payment: {
-    banking_billet: {
-      expire_at: tomorrow
-    }
-  }
-}
-
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .payCharge(paymentInput)
-  .then(function (payment) {
-    console.log('Payment:', payment);
+  .updateParcel({
+    charge_id: 233,
+    expire_at: '2020-12-12'
+  })
+  .then(function (notification) {
+    console.log('Response:',
+      util.inspect(notification, false, null));
   })
   .catch(function (err) {
     console.log('Error:', err);
-  });
+  })
+  .done();

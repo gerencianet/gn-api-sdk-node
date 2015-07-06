@@ -7,7 +7,7 @@ var Gerencianet = require('gn-api-sdk-node');
 var gerencianet = new Gerencianet(options);
 ```
 
-Any changes that happen in the charges will trigger an event that notifies the `notification_url` provided at creation time (see [creating charges](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/charge-with-customer.md)).
+Any changes that happen in the charges will trigger an event that notifies the `notification_url` provided at creation time (see [creating charges](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charges.md)).
 
 It's also possible to set or change the `notification_url` for existing charges:
 
@@ -15,7 +15,7 @@ It's also possible to set or change the `notification_url` for existing charges:
 gerencianet
   .updateNotification({
     charge_id: 233,
-    notification_url: 'http://google.com'
+    notification_url: 'http://yourdomain.com'
   })
   .then(function (notification) {
     console.log(util.inspect(notification, false, null));
