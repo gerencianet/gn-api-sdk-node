@@ -1,5 +1,7 @@
 ## Paying charges
 
+There are two ways of giving sequence to a charge. You can generate a banking billet so it is payable until its due date, or can use the customer's credit card to submit the payment.
+
 Instantiate the module:
 
 ```js
@@ -7,11 +9,9 @@ var Gerencianet = require('gn-api-sdk-node');
 var gerencianet = new Gerencianet(options);
 ```
 
-There are two ways of giving sequence to a charge. One can generate a **banking billet** so it is payable until its due date, or one can use its **credit card** to approve the payment.
-
 ### 1. Banking billets
 
-Generating banking billets from a charge is deadly simple. Provide the charge id and an optional expiration date:
+Setting banking billet as a charge's payment method is simple. You have to use `banking_billet` as the payment method and inform the `charge_id`.
 
 ```js
 var tenDaysFromNow = moment()
@@ -28,13 +28,13 @@ var paymentInput = {
 }
 
 gerencianet
-  .createPayment(paymentInput)
+  .payCharge(paymentInput)
   .then(console.log)
   .catch(console.log)
   .done();
 ```
 
-If you don't need an expiration date, keep the `banking_billet` object empty like this:
+If you don't set the `expire_at` attribute, the date will be today + 3 days. To do this, just keep the `banking_billet` object empty:
 
 ```js
 var paymentInput = {
@@ -106,7 +106,7 @@ var paymentInput = {
 }
 
 gerencianet
-  .createPayment(paymentInput)
+  .payCharge(paymentInput)
   .then(console.log)
   .catch(console.log)
   .done();
@@ -137,4 +137,4 @@ When in production, it will depend if your project is a web app or a mobile app.
 
 For web apps you should follow this [guide](https://api.gerencianet.com.br/checkout/card). It basically consists of copying/pasting a script tag in your checkout page.
 
-For mobile apps you should use this [SDK for Android](https://github.com/franciscotfmc/gn-api-sdk-android) or this [SDK for iOS](https://github.com/thomazfeitoza/gn-api-sdk-ios).
+For mobile apps you should use this [SDK for Android](https://github.com/gerencianet/gn-api-sdk-android) or this [SDK for iOS](https://github.com/gerencianet/gn-api-sdk-ios).

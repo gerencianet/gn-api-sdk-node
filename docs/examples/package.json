@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "gn-api-sdk-node": "git+ssh://git@github.com:franciscotfmc/gn-api-sdk-node.git",
+    "gn-api-sdk-node": "git+ssh://git@github.com:gerencianet/gn-api-sdk-node.git",
     "moment": "~2.8.4"
   }
 }
