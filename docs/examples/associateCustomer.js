@@ -23,7 +23,7 @@ var customerInput = {
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .associateCustomer(customerInput)
+  .associateChargeCustomer(customerInput)
   .then(function (customer) {
     console.log('Response:', customer);
   })

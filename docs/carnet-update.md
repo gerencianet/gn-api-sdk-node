@@ -6,7 +6,7 @@ You can update the `custom_id` or the `notification_url` of a carnet at any time
 
 Is important to know that it updates all the charges of the carnet. If you want to update only one, see [Updating charges](/docs/charge-update.md).
 
-```
+```js
 gerencianet
   .updateCarnetMetadata({
     charge_id: 233,
@@ -21,19 +21,21 @@ gerencianet
     console.log('Error:', err);
   })
   .done();
-```js
+```
 
 If everything goes well, the return will be:
 
+```js
 {
   "code": 200
 }
+```
 
 ### Updating the expiration date of a parcel
 
 To update or set an expiration date to a parcel, the parcel must have a `waiting` status. You just have to provide the charge id and a new expiration date:
 
-```
+```js
 gerencianet
   .updateParcel({
     charge_id: 233,
@@ -47,12 +49,12 @@ gerencianet
     console.log('Error:', err);
   })
   .done();
-```js
+```
 
 If everything goes well, the return will be:
 
-```
+```js
 {
   "code": 200
 }
-```js
+```

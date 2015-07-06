@@ -89,6 +89,7 @@ var carnetInput = {
   repeats: 4,
   expire_at: '2020-12-12'
 }
+```
 
 ### Setting post office service information:
 `optional`
@@ -149,17 +150,24 @@ var carnetInput = {
 If you want the carnet billet to have extra instructions, it's possible to send a maximum of 4 different instructions with a maximum of 90 caracters, just as follows:
 
 ```js
-var paymentInput = {
-  charge_id: 242,
-  payment: {
-    banking_billet: {
-      expire_at: tenDaysFromNow,
-      instructions: [
-        "Pay only with money",
-        "Do not pay with gold"
-      ]
-    }
-  }
+var carnetInput = {
+  items: [{
+    name: 'Carnet Item 1',
+    value: 1000,
+    amount: 2
+  }],
+  customer: {
+    name: 'Gorbadoc Oldbuck',
+    email: 'oldbuck@gerencianet.com.br',
+    cpf: '04267484171',
+    birth: '1977-01-15',
+    phone_number: '5144916523'
+  },
+  repeats: 4,
+  instructions: [
+    "Pay only with money",
+    "Do not pay with gold"
+  ]
 }
 ```
 
