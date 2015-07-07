@@ -38,7 +38,7 @@ To update or set an expiration date to a parcel, the parcel must have a `waiting
 ```js
 gerencianet
   .updateParcel({
-    carnet_id: 233
+    carnet_id: 233,
     parcel: 1,
     expire_at: '2020-12-12'
   })
