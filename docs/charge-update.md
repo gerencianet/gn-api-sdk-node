@@ -23,9 +23,11 @@ gerencianet
 
 If everything goes well, the return will be:
 
+```js
 {
   "code": 200
 }
+```
 
 ### Updating the expiration date of a billet
 
