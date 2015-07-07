@@ -55,11 +55,11 @@ var paymentInput = {
 
 var gerencianet = new Gerencianet(options);
 
-var associateCustomer = function (response) {
+var associateChargeCustomer = function (response) {
   console.log(response);
   customerInput.charge_id = response.data.charge_id;
   paymentInput.charge_id = response.data.charge_id;
-  return gerencianet.associateCustomer(customerInput);
+  return gerencianet.associateChargeCustomer(customerInput);
 }
 
 var payCharge = function (response) {
@@ -69,7 +69,7 @@ var payCharge = function (response) {
 
 gerencianet
   .createCharge(chargeInput)
-  .then(associateCustomer)
+  .then(associateChargeCustomer)
   .then(payCharge)
   .then(console.log)
   .catch(console.log);

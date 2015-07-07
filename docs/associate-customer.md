@@ -22,7 +22,7 @@ var customerInput = {
 }
 
 gerencianet
-  .associateCustomer(customerInput)
+  .associateChargeCustomer(customerInput)
   .then(console.log)
   .catch(console.log);
 ```
