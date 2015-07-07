@@ -23,13 +23,15 @@ gerencianet
 
 If everything goes well, the return will be:
 
+```js
 {
   "code": 200
 }
+```
 
 ### Updating the expiration date of a billet
 
-To update or set a expiration date to a charge, the charge must have a `waiting` status, and the payment method choosed must be `banking_billet`.
+To update or set a expiration date to a charge, the charge must have a `waiting` or `unpaid` status, and the payment method choosed must be `banking_billet`.
 
 If the charge contemplates these requirements, you just have to provide the charge id and a new expiration date:
 

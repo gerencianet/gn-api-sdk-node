@@ -17,7 +17,7 @@ gerencianet
     customer: true
   })
   .then(function (subscription) {
-    console.log(subscription);
+    console.log('Response:', subscription);
   })
   .catch(function (err) {
     console.log('Error:', err);

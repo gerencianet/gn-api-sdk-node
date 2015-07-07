@@ -37,10 +37,10 @@ gerencianet
   .done();
 ```
 
-### Creating the charge:
+### Creating the subscription:
 
 ```js
-var chargeInput = {
+var subscriptionInput = {
   items: [{
     name: 'Product 1',
     value: 1000,
@@ -50,9 +50,9 @@ var chargeInput = {
 }
 
 gerencianet
-  .createCharge(chargeInput)
-  .then(function (charge) {
-    console.log('Response:', charge);
+  .createSubscription(subscriptionInput)
+  .then(function (subscription) {
+    console.log('Response:', subscription);
   })
   .catch(function (err) {
     console.log('Error:', err);

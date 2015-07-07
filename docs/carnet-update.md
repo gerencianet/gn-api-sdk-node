@@ -33,12 +33,12 @@ If everything goes well, the return will be:
 
 ### Updating the expiration date of a parcel
 
-To update or set an expiration date to a parcel, the parcel must have a `waiting` status. You just have to provide the `carnet_id`, the number of the parcel and a new expiration date:
+To update or set an expiration date to a parcel, the parcel must have a `waiting` or 'unpaid' status. You just have to provide the `carnet_id`, the number of the parcel (`parcel`) and a new expiration date (`expire_at`):
 
 ```js
 gerencianet
   .updateParcel({
-    carnet_id: 233
+    carnet_id: 233,
     parcel: 1,
     expire_at: '2020-12-12'
   })

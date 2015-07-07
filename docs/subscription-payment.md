@@ -10,9 +10,8 @@ Instantiate the module:
 var Gerencianet = require('gn-api-sdk-node');
 var gerencianet = new Gerencianet(options);
 
-```js
 var paymentInput = {
-  charge_id: 223,
+  subscription_id: 11,
   payment: {
     credit_card: {
       installments: 1,
@@ -42,7 +41,7 @@ If everything went well, the response will come with total value, installments n
 {
   "code": 200,
   "data": {
-    "charge_id": 223,
+    "subscription_id": 11,
     "total": 1150,
     "payment": "credit_card",
     "installments": 1,
