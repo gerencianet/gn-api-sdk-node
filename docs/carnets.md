@@ -89,6 +89,7 @@ var carnetInput = {
   repeats: 4,
   expire_at: '2020-12-12'
 }
+```
 
 ### Setting post office service information:
 `optional`
