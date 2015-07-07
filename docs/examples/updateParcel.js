@@ -14,7 +14,8 @@ var gerencianet = new Gerencianet(options);
 
 gerencianet
   .updateParcel({
-    charge_id: 233,
+    carnet_id: 233,
+    parcel: 1,
     expire_at: '2020-12-12'
   })
   .then(function (notification) {
