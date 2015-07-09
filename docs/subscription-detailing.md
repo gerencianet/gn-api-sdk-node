@@ -47,15 +47,15 @@ var chargeInput = {
 }
 
 var detailChargeCallback = function (charge) {
-  return {
+  var subscriptionInput = {
     subscription_id: charge.subscription_id;
-  }
+  };
+  return gerencianet.detailSubscription(subscriptionInput);
 }
 
 gerencianet
   .detailCharge(chargeInput)
   .then(detailChargeCallback)
-  .then(gerencianet.detailSubscription)
   .then(console.log)
   .catch(console.log)
   .done();

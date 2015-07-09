@@ -29,19 +29,14 @@ var createPlanCallback = function (response) {
   console.log(response);
   if (response.code === 200) {
     subscriptionInput.plan_id = response.data.plan_id;
-    return subscriptionInput;
+    return gerencianet.createSubscription(subscriptionInput);
   } else {
     throw new Error();
   }
 }
 
-var createChargeCallback = function (response) {
-  return gerencianet.createSubscription(subscriptionInput)
-}
-
 gerencianet
   .createPlan(planInput)
   .then(createPlanCallback)
-  .then(createChargeCallback)
   .then(console.log)
   .catch(console.log);

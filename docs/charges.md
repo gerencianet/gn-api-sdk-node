@@ -20,9 +20,10 @@ var chargeInput = {
     amount: 2
   }]
 }
+```
 
 ### Setting customer to a charge:
-`required`, but you can [set after creation](/docs/associate-customer.md)  
+`required`, but you can [set after creation](/docs/associate-customer.md)
 
 ```js
 var chargeInput = {
@@ -57,7 +58,7 @@ var chargeInput = {
     birth: '1977-01-15',
     phone_number: '5144916523'
     juridical_person: {
-      corporateName: 'Fictional Company',
+      corporate_name: 'Fictional Company',
       cnpj: '52841284000142'
     }
   }
