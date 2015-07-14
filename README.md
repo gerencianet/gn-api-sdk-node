@@ -110,7 +110,7 @@ $ npm test
 ### Carnets
 
 - [Creating carnets](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnets.md)
-- [Detailing carnets](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnets-detailing.md)
+- [Detailing carnets](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-detailing.md)
 - [Updating informations](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-update.md)
 
 ### Subscriptions
