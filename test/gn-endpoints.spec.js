@@ -176,6 +176,28 @@ describe('GN', function () {
               .done();
           });
 
+          it('should resolve promise with raw response', function (done) {
+            var expected = nock(constants.URL.production)
+              .post(constants.ENDPOINTS.createCharge)
+              .reply(401, createChargeResponseError)
+              .post(constants.ENDPOINTS.authorize)
+              .reply(200, accessTokenResponseOk)
+              .post(constants.ENDPOINTS.createCharge)
+              .reply(200, createChargeResponseOk);
+
+            gn.options.raw_response = true;
+
+            gn.post({}, 'createCharge')
+              .then(function (response) {
+                response.headers.should.not.be.undefined;
+                should(gn.getAccessToken.callCount).equal(1);
+                expected.done();
+                done();
+              })
+              .done();
+          });
+
+
           it('should reject promise', function (done) {
             var expected = nock(constants.URL.production)
               .post(constants.ENDPOINTS.createCharge)
