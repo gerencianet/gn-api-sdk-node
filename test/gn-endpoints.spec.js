@@ -58,8 +58,8 @@ var createChargeResponseOk = {
 describe('GN', function () {
   beforeEach(function () {
     options = {
-      clientId: 'clientId',
-      clientSecret: 'clientSecret',
+      client_id: 'clientId',
+      client_secret: 'clientSecret',
       sandbox: false
     }
 

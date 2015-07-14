@@ -29,38 +29,41 @@ var accessTokenResponseErr = {
   'error_description': 'Client credentials are invalid'
 }
 
-describe('GN', function() {
-  before(function() {
+describe('GN', function () {
+  before(function () {
     options = {
-      clientId: 'clientId',
-      clientSecret: 'clientSecret',
+      client_id: 'clientId',
+      client_secret: 'clientSecret',
       baseUrl: constants.URL.sandbox
     }
 
     gn = new GnAuth(options);
   });
 
-  describe('oauth authentication', function() {
-    it('should get an access token', function(done) {
+  describe('oauth authentication', function () {
+    it('should get an access token', function (done) {
       var expected = nock(constants.URL.sandbox)
         .post(constants.ENDPOINTS.authorize)
         .reply(200, accessTokenResponseOk);
 
       gn.getAccessToken()
-        .then(function(response) {
+        .then(function (response) {
           should(response)
             .eql(accessTokenResponseOk)
           done();
         })
+        .catch(function (err) {
+          console.log(err);
+        })
         .done();
     });
 
-    it('should reject invalid credentials', function(done) {
+    it('should reject invalid credentials', function (done) {
       var expected = nock(constants.URL.sandbox)
         .post(constants.ENDPOINTS.authorize)
         .reply(400, accessTokenResponseErr);
 
-      gn.getAccessToken().then(null, function(response) {
+      gn.getAccessToken().then(null, function (response) {
           should(response)
             .eql(accessTokenResponseErr)
           done();
@@ -68,14 +71,14 @@ describe('GN', function() {
         .done();
     });
 
-    it('should reject when an error occurs', function(done) {
-      requestStub.post = function(params, callback) {
+    it('should reject when an error occurs', function (done) {
+      requestStub.post = function (params, callback) {
         callback(new Error('ops'));
       }
 
       _gn = new _GnAuth(options);
 
-      _gn.getAccessToken().then(null, function(response) {
+      _gn.getAccessToken().then(null, function (response) {
           should(response)
             .eql(new Error('ops'))
           done();
