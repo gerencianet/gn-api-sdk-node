@@ -1,12 +1,5 @@
 ## Creating subscriptions
 
-Instantiate the module:
-
-```js
-var Gerencianet = require('gn-api-sdk-node');
-var gerencianet = new Gerencianet(options);
-```
-
 If you ever have to recurrently charge your clients, you can create a different kind of charge, one that belongs to a subscription. This way, subsequent charges will be automatically created and charged in your customers credit card, based on the interval and repetitions supplied in a plan configuration.
 
 The `repeats` parameter defines how many times the transaction will be repeated. If you don't pass it, the subscription will create charges indefinitely.
@@ -16,6 +9,15 @@ The `interval` parameter defines the interval, in months, that a charge has to b
 It's worth to mention that this mechanics is triggered only if the customer commits the subscription. In other words, it takes effect when the customer pays the first charge.
 
 At first, you need to to create a plan. Then, you create a charge passing a plan_id to generate a subscription. You can use the same plan_id whenever you want.
+
+First instantiate the module:
+
+```js
+var Gerencianet = require('gn-api-sdk-node');
+var gerencianet = new Gerencianet(options);
+```
+
+### Creating and setting a plan to a subscription:
 
 ```js
 var planInput = {
@@ -35,10 +37,10 @@ gerencianet
   .done();
 ```
 
-Creating the charge:
+### Creating the subscription:
 
 ```js
-var chargeInput = {
+var subscriptionInput = {
   items: [{
     name: 'Product 1',
     value: 1000,
@@ -48,9 +50,9 @@ var chargeInput = {
 }
 
 gerencianet
-  .createCharge(chargeInput)
-  .then(function (charge) {
-    console.log('Response:', charge);
+  .createSubscription(subscriptionInput)
+  .then(function (subscription) {
+    console.log('Response:', subscription);
   })
   .catch(function (err) {
     console.log('Error:', err);
@@ -59,30 +61,7 @@ gerencianet
 }
 ```
 
-## Canceling subscriptions
-
-You can cancel subscriptions at any time:
-
-```js
-gerencianet
-  .cancelSubscription({
-    subscription_id: 14,
-    customer: true
-  })
-  .then(console.log)
-  .catch(console.log)
-  .done();
-```
-
-```js
-{
-  "code": 200
-}
-```
-
-The `customer` attribute above indicates who is triggering the cancellation, the customer or the one providing the service. In this case, the customer decided not to continue with the subscription.
-
-## Deleting plans
+### Deleting a plan:
 *(works just for plans that hasn't a subscription associated):*
 
 ```js
@@ -99,3 +78,28 @@ gerencianet
   })
   .done();
 ```
+
+### Canceling subscriptions
+
+You can cancel active subscriptions at any time:
+
+```js
+gerencianet
+  .cancelSubscription({
+    subscription_id: 14,
+    customer: true
+  })
+  .then(console.log)
+  .catch(function (err) {
+    console.log('Error:', err);
+  })
+  .done();
+```
+
+```js
+{
+  "code": 200
+}
+```
+
+The `customer` attribute above indicates who is triggering the cancellation, the customer or the one providing the service. In this case, the customer decided not to continue with the subscription.

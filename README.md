@@ -67,7 +67,7 @@ gerencianet
 To run the examples, clone this repo and install the dependencies:
 
 ```bash
-$ git clone git@github.com:franciscotfmc/gn-api-sdk-node.git
+$ git clone git@github.com:gerencianet/gn-api-sdk-node.git
 $ cd gn-api-sdk-node/docs/examples
 $ npm install
 ```
@@ -97,24 +97,48 @@ $ npm install
 $ npm test
 ```
 
-## Additional docs
+## Additional documentation
 
-- [Creating charges with shippings](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/charge-with-shippings.md)
-- [Creating charges associated to customers](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/charge-with-customer.md)
-- [Creating charges with marketplace](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/charge-with-marketplace.md)
-- [Sending charges via post office service](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/charge-with-post-office.md)
-- [Associating customers to charges subsequently](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/associate-customer.md)
-- [Subscriptions](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/subscriptions.md)
-- [Detailing charges and subscriptions](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/detailing.md)
-- [Creating and retrieving carnets](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/carnets.md)
-- [Listing installments in advance](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/payment-data.md)
-- [Paying a charge](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/payments.md)
-- [Notifications](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/notifications.md)
-- [All in one](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/docs/all-in-one.md)
+### Charges
+
+- [Creating charges](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charges.md)
+- [Associating a customer](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/associate-customer.md)
+- [Paying a charge](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-payment.md)
+- [Detailing charges](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-detailing.md)
+- [Updating informations](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-update.md)
+
+### Carnets
+
+- [Creating carnets](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnets.md)
+- [Detailing carnets](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-detailing.md)
+- [Updating informations](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-update.md)
+
+### Subscriptions
+
+- [Creating subscriptions](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/subscriptions.md)
+- [Paying a subscription](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/subscription-payment.md)
+- [Detailing subscriptions](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/subscription-detailing.md)
+- [Updating informations](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/subscription-update.md)
+
+### Marketplace
+
+- [Creating a marketplace](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-with-marketplace.md)
+
+### Notifications
+
+- [Getting notifications](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/notifications.md)
+
+### Payments
+
+- [Getting the payment data](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/payment-data.md)
+
+### All in one
+
+- [Usage](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/all-in-one.md)
 
 ## Changelog
 
-[CHANGELOG](https://github.com/franciscotfmc/gn-api-sdk-node/tree/master/CHANGELOG.md)
+[CHANGELOG](https://github.com/gerencianet/gn-api-sdk-node/tree/master/CHANGELOG.md)
 
 ## License
 

@@ -1,6 +1,5 @@
 'use strict';
 
-var util = require('util');
 var Gerencianet = require('gn-api-sdk-node');
 var credentials = require('./credentials');
 
@@ -10,18 +9,24 @@ var options = {
   sandbox: true
 }
 
+var customerInput = {
+  charge_id: 223,
+  customer: {
+    name: 'Gorbadoc Oldbuck',
+    email: 'oldbuck@gerencianet.com.br',
+    cpf: '04267484171',
+    birth: '1977-01-15',
+    phone_number: '5144916523'
+  }
+}
+
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .updateNotification({
-    charge_id: 233,
-    notification_url: 'http://google.com'
-  })
-  .then(function (notification) {
-    console.log('Response:',
-      util.inspect(notification, false, null));
+  .associateChargeCustomer(customerInput)
+  .then(function (customer) {
+    console.log('Response:', customer);
   })
   .catch(function (err) {
     console.log('Error:', err);
-  })
-  .done();
+  });

@@ -1,5 +1,6 @@
 'use strict';
 
+var util = require('util');
 var Gerencianet = require('gn-api-sdk-node');
 var credentials = require('./credentials');
 
@@ -12,12 +13,14 @@ var options = {
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .cancelSubscription({
-    subscription_id: 18,
-    customer: true
+  .updateParcel({
+    carnet_id: 233,
+    parcel: 1,
+    expire_at: '2020-12-12'
   })
-  .then(function (subscription) {
-    console.log('Response:', subscription);
+  .then(function (notification) {
+    console.log('Response:',
+      util.inspect(notification, false, null));
   })
   .catch(function (err) {
     console.log('Error:', err);

@@ -27,7 +27,7 @@ var customerInput = {
   customer: {
     name: 'Gorbadoc Oldbuck',
     email: 'oldbuck@gerencianet.com.br',
-    document: '04267484171',
+    cpf: '04267484171',
     birth: '1977-01-15',
     phone_number: '5144916523'
   }
@@ -55,16 +55,16 @@ var paymentInput = {
 Create the callback functions for charge and customer:
 
 ```js
-var createCustomer = function (response) {
+var associateChargeCustomer = function (response) {
   console.log(response);
   customerInput.charge_id = response.data.charge_id;
   paymentInput.charge_id = response.data.charge_id;
-  return gerencianet.createCustomer(customerInput);
+  return gerencianet.associateChargeCustomer(customerInput);
 }
 
-var createPayment = function (response) {
+var payCharge = function (response) {
   console.log(response);
-  return gerencianet.createPayment(paymentInput)
+  return gerencianet.payCharge(paymentInput)
 }
 ```
 
@@ -75,8 +75,8 @@ var gerencianet = new Gerencianet(options);
 
 gerencianet
   .createCharge(chargeInput)
-  .then(createCustomer)
-  .then(createPayment)
+  .then(associateChargeCustomer)
+  .then(payCharge)
   .then(console.log)
   .catch(console.log);
 ```
@@ -128,7 +128,7 @@ var chargeInput = {
 
 gerencianet
   .createCharge(chargeInput)
-  .then(createPayment)
+  .then(payCharge)
   .then(console.log)
   .catch(console.log);
 ```

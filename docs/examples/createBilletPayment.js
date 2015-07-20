@@ -26,7 +26,7 @@ var paymentInput = {
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .createPayment(paymentInput)
+  .payCharge(paymentInput)
   .then(function (payment) {
     console.log('Payment:', payment);
   })
