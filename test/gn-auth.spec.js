@@ -43,7 +43,7 @@ describe('GN', function () {
   describe('oauth authentication', function () {
     it('should get an access token', function (done) {
       var expected = nock(constants.URL.sandbox)
-        .post(constants.ENDPOINTS.authorize)
+        .post(constants.ENDPOINTS.authorize.route)
         .reply(200, accessTokenResponseOk);
 
       gn.getAccessToken()
@@ -60,7 +60,7 @@ describe('GN', function () {
 
     it('should reject invalid credentials', function (done) {
       var expected = nock(constants.URL.sandbox)
-        .post(constants.ENDPOINTS.authorize)
+        .post(constants.ENDPOINTS.authorize.route)
         .reply(400, accessTokenResponseErr);
 
       gn.getAccessToken().then(null, function (response) {

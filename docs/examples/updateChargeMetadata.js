@@ -14,8 +14,9 @@ var gerencianet = new Gerencianet(options);
 
 gerencianet
   .updateChargeMetadata({
-    charge_id: 233,
-    notification_url: 'http://yourdomain.com'
+    id: 1008
+  }, {
+    notification_url: 'http://yourdomain.com',
     custom_id: 'my_new_id'
   })
   .then(function (notification) {
