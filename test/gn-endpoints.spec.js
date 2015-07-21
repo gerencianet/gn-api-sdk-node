@@ -18,8 +18,7 @@ var requestStub = {};
 var expected = {}
 
 var _GnEndpoints = proxyquire('../lib/gn-endpoints', {
-  'request': requestStub,
-  'constants': constants
+  'request': requestStub
 });
 
 var accessTokenResponseOk = {
@@ -67,9 +66,9 @@ describe('GN', function () {
       callback(new Error('ops'));
     }
 
-    gn = new GnEndpoints(options);
+    gn = new GnEndpoints(options, constants);
     options.sandbox = true;
-    _gn = new _GnEndpoints(options);
+    _gn = new _GnEndpoints(options, constants);
 
     nock.cleanAll();
   });
