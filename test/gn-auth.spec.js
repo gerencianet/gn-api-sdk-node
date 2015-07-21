@@ -37,7 +37,7 @@ describe('GN', function () {
       baseUrl: constants.URL.sandbox
     }
 
-    gn = new GnAuth(options);
+    gn = new GnAuth(options, constants);
   });
 
   describe('oauth authentication', function () {
@@ -76,7 +76,7 @@ describe('GN', function () {
         callback(new Error('ops'));
       }
 
-      _gn = new _GnAuth(options);
+      _gn = new _GnAuth(options, constants);
 
       _gn.getAccessToken().then(null, function (response) {
           should(response)
