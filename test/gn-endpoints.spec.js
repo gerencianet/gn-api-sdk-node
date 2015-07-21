@@ -77,7 +77,7 @@ describe('GN', function () {
     describe('oauth', function () {
       it('should resolve promise with an access token', function (done) {
         var expected = nock(constants.URL.production)
-          .post(constants.ENDPOINTS.authorize)
+          .post(constants.ENDPOINTS.authorize.route)
           .reply(200, accessTokenResponseOk);
 
         gn.getAccessToken()
@@ -91,7 +91,7 @@ describe('GN', function () {
 
       it('should reject promise with unauthorized response', function (done) {
         var expected = nock(constants.URL.production)
-          .post(constants.ENDPOINTS.authorize)
+          .post(constants.ENDPOINTS.authorize.route)
           .reply(401, accessTokenResponseErr);
 
         gn.getAccessToken()
@@ -108,12 +108,12 @@ describe('GN', function () {
       describe('when accessToken is null', function () {
         it('should resolve promise', function (done) {
           expected = nock(constants.URL.production)
-            .post(constants.ENDPOINTS.authorize)
+            .post(constants.ENDPOINTS.authorize.route)
             .reply(200, accessTokenResponseOk)
-            .post(constants.ENDPOINTS.createCharge)
+            .post(constants.ENDPOINTS.createCharge.route)
             .reply(200, createChargeResponseOk);
 
-          gn.post({}, 'createCharge')
+          gn.run('createCharge', {}, {})
             .then(function (response) {
               response.should.be.eql(createChargeResponseOk)
               expected.done();
@@ -124,12 +124,12 @@ describe('GN', function () {
 
         it('should reject promise when response is not 200', function (done) {
           var expected = nock(constants.URL.production)
-            .post(constants.ENDPOINTS.authorize)
+            .post(constants.ENDPOINTS.authorize.route)
             .reply(200, accessTokenResponseOk)
-            .post(constants.ENDPOINTS.createCharge)
+            .post(constants.ENDPOINTS.createCharge.route)
             .reply(400, createChargeResponseError);
 
-          gn.post({}, 'createCharge')
+          gn.run('createCharge', {}, {})
             .then(null, function (response) {
               response.should.be.eql(createChargeResponseError)
               expected.done();
@@ -139,7 +139,7 @@ describe('GN', function () {
         });
 
         it('should reject promise when an error occurs', function (done) {
-          _gn.run({})
+          _gn.run('createCharge')
             .then(null, function (response) {
               response.should.be.eql(new Error('ops'));
               done();
@@ -158,14 +158,14 @@ describe('GN', function () {
 
           it('should resolve promise', function (done) {
             var expected = nock(constants.URL.production)
-              .post(constants.ENDPOINTS.createCharge)
+              .post(constants.ENDPOINTS.createCharge.route)
               .reply(401, createChargeResponseError)
-              .post(constants.ENDPOINTS.authorize)
+              .post(constants.ENDPOINTS.authorize.route)
               .reply(200, accessTokenResponseOk)
-              .post(constants.ENDPOINTS.createCharge)
+              .post(constants.ENDPOINTS.createCharge.route)
               .reply(200, createChargeResponseOk);
 
-            gn.post({}, 'createCharge')
+            gn.run('createCharge', {}, {})
               .then(function (response) {
                 response.should.be.eql(createChargeResponseOk);
                 should(gn.getAccessToken.callCount).equal(1);
@@ -177,16 +177,16 @@ describe('GN', function () {
 
           it('should resolve promise with raw response', function (done) {
             var expected = nock(constants.URL.production)
-              .post(constants.ENDPOINTS.createCharge)
+              .post(constants.ENDPOINTS.createCharge.route)
               .reply(401, createChargeResponseError)
-              .post(constants.ENDPOINTS.authorize)
+              .post(constants.ENDPOINTS.authorize.route)
               .reply(200, accessTokenResponseOk)
-              .post(constants.ENDPOINTS.createCharge)
+              .post(constants.ENDPOINTS.createCharge.route)
               .reply(200, createChargeResponseOk);
 
             gn.options.raw_response = true;
 
-            gn.post({}, 'createCharge')
+            gn.run('createCharge', {}, {})
               .then(function (response) {
                 response.headers.should.not.be.undefined;
                 should(gn.getAccessToken.callCount).equal(1);
@@ -196,17 +196,16 @@ describe('GN', function () {
               .done();
           });
 
-
           it('should reject promise', function (done) {
             var expected = nock(constants.URL.production)
-              .post(constants.ENDPOINTS.createCharge)
+              .post(constants.ENDPOINTS.createCharge.route)
               .reply(401, createChargeResponseError)
-              .post(constants.ENDPOINTS.authorize)
+              .post(constants.ENDPOINTS.authorize.route)
               .reply(200, accessTokenResponseOk)
-              .post(constants.ENDPOINTS.createCharge)
+              .post(constants.ENDPOINTS.createCharge.route)
               .reply(500, createChargeResponseError);
 
-            gn.post({}, 'createCharge')
+            gn.run('createCharge', {}, {})
               .then(null, function (response) {
                 response.should.be.eql(createChargeResponseError);
                 should(gn.getAccessToken.callCount).equal(1);
@@ -226,10 +225,10 @@ describe('GN', function () {
 
           it('should reject promise', function (done) {
             var expected = nock(constants.URL.production)
-              .post(constants.ENDPOINTS.createCharge)
+              .post(constants.ENDPOINTS.createCharge.route)
               .replyWithError('server is off');
 
-            gn.post({}, 'createCharge')
+            gn.run('createCharge', {}, {})
               .then(null, function (response) {
                 should(gn.getAccessToken.callCount).equal(0);
                 expected.done();
@@ -247,10 +246,10 @@ describe('GN', function () {
 
           it('should resolve promise', function (done) {
             var expected = nock(constants.URL.production)
-              .post(constants.ENDPOINTS.createCharge)
+              .post(constants.ENDPOINTS.createCharge.route)
               .reply(200, createChargeResponseOk);
 
-            gn.post({}, 'createCharge')
+            gn.run('createCharge', {}, {})
               .then(function (response) {
                 response.should.be.eql(createChargeResponseOk);
                 should(gn.getAccessToken.callCount).equal(0);
@@ -262,10 +261,10 @@ describe('GN', function () {
 
           it('should reject promise', function (done) {
             var expected = nock(constants.URL.production)
-              .post(constants.ENDPOINTS.createCharge)
+              .post(constants.ENDPOINTS.createCharge.route)
               .reply(400, createChargeResponseOk);
 
-            gn.post({}, 'createCharge')
+            gn.run('createCharge', {}, {})
               .then(null, function (response) {
                 response.should.be.eql(createChargeResponseOk);
                 should(gn.getAccessToken.callCount).equal(0);
@@ -277,5 +276,44 @@ describe('GN', function () {
         });
       });
     });
-  });
-});
+
+    describe('url params', function () {
+      it('should map params object to url specific placeholders', function (done) {
+        gn.params = {
+          id: 1,
+          other: 'other'
+        }
+
+        var params = gn.getParams('/charge/:id/:other');
+        should(params.url)
+          .equal('http://localhost/charge/1/other');
+
+        done();
+      });
+
+      it('should map spare params attributes to a query string', function (done) {
+        gn.params = {
+          id: 1,
+          name: 'name',
+          lastName: 'lastName'
+        }
+
+        var params = gn.getParams('/charge/:id');
+        should(params.url)
+          .equal('http://localhost/charge/1?name=name&lastName=lastName');
+        done();
+      });
+
+      it('should not map empy params', function (done) {
+        gn.params = {
+          id: 1
+        }
+
+        var params = gn.getParams('/charges/:missing');
+        should(params.url)
+          .equal('http://localhost/charges/:missing?id=1');
+        done();
+      });
+    });
+  }); //endpoints
+}); //GN

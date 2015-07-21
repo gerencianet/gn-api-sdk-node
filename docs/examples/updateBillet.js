@@ -14,7 +14,8 @@ var gerencianet = new Gerencianet(options);
 
 gerencianet
   .updateBillet({
-    charge_id: 233,
+    id: 1008
+  }, {
     expire_at: '2020-12-12'
   })
   .then(function (notification) {

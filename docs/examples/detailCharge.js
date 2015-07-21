@@ -14,7 +14,7 @@ var gerencianet = new Gerencianet(options);
 
 gerencianet
   .detailCharge({
-    charge_id: 233
+    id: 1001
   })
   .then(function (charge) {
     console.log('Response:',
