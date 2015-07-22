@@ -1,19 +1,22 @@
 ## Detailing subscriptions
 
-Works just like the last example, but here you pass the subscription id:
+Works just like the charge detailing, but here you pass the subscription id:
 
 ```js
+var params = {
+  id: 1000
+}
+
+var gerencianet = new Gerencianet(options);
+
 gerencianet
-  .detailSubscription({
-    subscription_id: 11
-  })
-  .then(function (subscription) {
-    console.log('Response:',
-      util.inspect(subscription, false, null));
-  })
+  .detailSubscription(params)
+  .then(console.log)
   .catch(console.log)
   .done();
 ```
+
+Response:
 
 ```js
 {
@@ -42,19 +45,21 @@ Note that if you [detail a charge](/docs/charge-detailing.md) that belongs to a 
 
 ```js
 
-var chargeInput = {
+var params = {
   charge_id: 233
 }
 
 var detailChargeCallback = function (charge) {
-  var subscriptionInput = {
-    subscription_id: charge.subscription_id;
-  };
-  return gerencianet.detailSubscription(subscriptionInput);
+
+  var params = {
+    id: charge.subscription_id;
+  }
+
+  return gerencianet.detailSubscription(params);
 }
 
 gerencianet
-  .detailCharge(chargeInput)
+  .detailCharge(params)
   .then(detailChargeCallback)
   .then(console.log)
   .catch(console.log)

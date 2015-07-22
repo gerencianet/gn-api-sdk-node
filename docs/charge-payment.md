@@ -18,32 +18,33 @@ var tenDaysFromNow = moment()
   .add(10, 'days')
   .format('YYYY-MM-DD 00:00:00');
 
-var paymentInput = {
-  charge_id: 242,
+var params = {
+  id: 1000
+}
+
+var body = {
   payment: {
     banking_billet: {
-      expire_at: tenDaysFromNow
+      expire_at: tenDaysFromNow,
+      customer: {
+        name: 'Gorbadoc Oldbuck',
+        email: 'oldbuck@gerencianet.com.br',
+        cpf: '04267484171',
+        birth: '1977-01-15',
+        phone_number: '5144916523'
+      }
     }
   }
 }
 
 gerencianet
-  .payCharge(paymentInput)
+  .payCharge(params, body)
   .then(console.log)
   .catch(console.log)
   .done();
 ```
 
-If you don't set the `expire_at` attribute, the date will be today + 3 days. To do this, just keep the `banking_billet` object empty:
-
-```js
-var paymentInput = {
-  charge_id: 242,
-  payment: {
-    banking_billet: {}
-  }
-}
-```
+If you don't set the `expire_at` attribute, the date will be the current day + 3.
 
 You'll receive the payment info in the callback, such as the barcode and the billet link:
 
@@ -64,11 +65,17 @@ You'll receive the payment info in the callback, such as the barcode and the bil
 If you want the banking billet to have extra instructions, it's possible to send a maximum of 4 different instructions with a maximum of 90 caracters, just as follows:
 
 ```js
-var paymentInput = {
-  charge_id: 242,
+var body = {
   payment: {
     banking_billet: {
       expire_at: tenDaysFromNow,
+      customer: {
+        name: 'Gorbadoc Oldbuck',
+        email: 'oldbuck@gerencianet.com.br',
+        cpf: '04267484171',
+        birth: '1977-01-15',
+        phone_number: '5144916523'
+      },
       instructions: [
         "Pay only with money",
         "Do not pay with gold"
@@ -87,8 +94,7 @@ The difference here is that we need to provide some extra information, as a `bil
 We'll talk about getting payment tokens later. For now, let's take a look at the snipet that does the work we're aiming for:
 
 ```js
-var paymentInput = {
-  charge_id: 223,
+var body = {
   payment: {
     credit_card: {
       installments: 1,
@@ -100,13 +106,24 @@ var paymentInput = {
         zipcode: '35400000',
         city: 'Ouro Preto',
         state: 'MG'
+      },
+      customer: {
+        name: 'Gorbadoc Oldbuck',
+        email: 'oldbuck@gerencianet.com.br',
+        cpf: '04267484171',
+        birth: '1977-01-15',
+        phone_number: '5144916523'
       }
     }
   }
 }
 
+var params = {
+  id: 1000
+}
+
 gerencianet
-  .payCharge(paymentInput)
+  .payCharge(params, body)
   .then(console.log)
   .catch(console.log)
   .done();

@@ -1,23 +1,22 @@
 ## Detailing carnets
 
-In order to retrieve carnets, just provide the carnet_id:
+In order to retrieve carnets, just provide the id:
 
 ```js
+var params = {
+  id: 1002
+}
+
+var gerencianet = new Gerencianet(options);
+
 gerencianet
-  .detailCarnet({
-    carnet_id: 6
-  })
-  .then(function (carnet) {
-    console.log('Response:',
-      util.inspect(carnet, false, null));
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .detailCarnet(params)
+  .then(console.log)
+  .catch(console.log)
   .done();
 ```
 
-As response, you will receive all information about the carnet:
+The response you'll receive contains all the information about the carnet:
 
 ```js
 {

@@ -2,28 +2,30 @@
 
 ### Changing the metadata
 
-You can update the `custom_id` or the `notification_url` of a carnet at any time you want.
+You can update the `custom_id` and the `notification_url` of a carnet at any time.
 
-Is important to know that it updates all the charges of the carnet. If you want to update only one, see [Updating charges](/docs/charge-update.md).
+It's important to keep in mind that all the charges of the carnet will be updated. If you want to update only one charge, check [Updating charges](/docs/charge-update.md).
 
 ```js
+var params = {
+  id: 1004
+}
+
+var body = {
+  notification_url: 'http://yourdomain.com/my_new_route',
+  custom_id: 'my_new_id'
+}
+
+var gerencianet = new Gerencianet(options);
+
 gerencianet
-  .updateCarnetMetadata({
-    charge_id: 233,
-    notification_url: 'http://yourdomain.com/my_new_route',
-    custom_id: 'my_new_id'
-  })
-  .then(function (notification) {
-    console.log('Response:',
-      util.inspect(notification, false, null));
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .updateCarnetMetadata(params, body)
+  .then(console.log)
+  .catch(console.log)
   .done();
 ```
 
-If everything goes well, the return will be:
+If everything goes well, the response will be:
 
 ```js
 {
@@ -33,26 +35,28 @@ If everything goes well, the return will be:
 
 ### Updating the expiration date of a parcel
 
-To update or set an expiration date to a parcel, the parcel must have a `waiting` or 'unpaid' status. You just have to provide the `carnet_id`, the number of the parcel (`parcel`) and a new expiration date (`expire_at`):
+Only parcels with status `waiting` or `unpaid` can have expiration date set or updated:
 
 ```js
+var params = {
+  id: 1008
+}
+
+var body = {
+  parcel: 1,
+  expire_at: '2020-12-12'
+}
+
+var gerencianet = new Gerencianet(options);
+
 gerencianet
-  .updateParcel({
-    carnet_id: 233,
-    parcel: 1,
-    expire_at: '2020-12-12'
-  })
-  .then(function (notification) {
-    console.log('Response:',
-      util.inspect(notification, false, null));
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .updateParcel(params, body)
+  .then(console.log)
+  .catch(console.log)
   .done();
 ```
 
-If everything goes well, the return will be:
+If everything goes well, the response will be:
 
 ```js
 {
