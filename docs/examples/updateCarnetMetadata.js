@@ -1,6 +1,5 @@
 'use strict';
 
-var util = require('util');
 var Gerencianet = require('gn-api-sdk-node');
 var credentials = require('./credentials');
 
@@ -10,19 +9,19 @@ var options = {
   sandbox: true
 }
 
+var params = {
+  id: 1004
+}
+
+var body = {
+  notification_url: 'http://yourdomain.com',
+  custom_id: 'my_new_id'
+}
+
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .updateCarnetMetadata({
-    carnet_id: 233,
-    notification_url: 'http://yourdomain.com'
-    custom_id: 'my_new_id'
-  })
-  .then(function (notification) {
-    console.log('Response:',
-      util.inspect(notification, false, null));
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .updateCarnetMetadata(params, body)
+  .then(console.log)
+  .catch(console.log)
   .done();

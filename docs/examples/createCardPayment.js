@@ -9,8 +9,7 @@ var options = {
   sandbox: true
 }
 
-var paymentInput = {
-  charge_id: 223,
+var body = {
   payment: {
     credit_card: {
       installments: 1,
@@ -22,18 +21,26 @@ var paymentInput = {
         zipcode: '35400000',
         city: 'Ouro Preto',
         state: 'MG'
+      },
+      customer: {
+        name: 'Gorbadoc Oldbuck',
+        email: 'oldbuck@gerencianet.com.br',
+        cpf: '04267484171',
+        birth: '1977-01-15',
+        phone_number: '5144916523'
       }
     }
   }
 }
 
+var params = {
+  id: 1000
+}
+
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .payCharge(paymentInput)
-  .then(function (payment) {
-    console.log('Payment:', payment);
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  });
+  .payCharge(params, body)
+  .then(console.log)
+  .catch(console.log)
+  .done();

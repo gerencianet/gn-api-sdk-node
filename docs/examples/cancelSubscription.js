@@ -9,17 +9,14 @@ var options = {
   sandbox: true
 }
 
+var params = {
+  id: 18
+}
+
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .cancelSubscription({
-    subscription_id: 18,
-    customer: true
-  })
-  .then(function (subscription) {
-    console.log('Response:', subscription);
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .cancelSubscription(params)
+  .then(console.log)
+  .catch(console.log)
   .done();

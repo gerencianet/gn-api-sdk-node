@@ -1,6 +1,5 @@
 'use strict';
 
-var util = require('util');
 var Gerencianet = require('gn-api-sdk-node');
 var credentials = require('./credentials');
 
@@ -10,19 +9,18 @@ var options = {
   sandbox: true
 }
 
+var params = {
+  id: 1008
+}
+
+var body = {
+  expire_at: '2020-12-12'
+}
+
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .updateBillet({
-    id: 1008
-  }, {
-    expire_at: '2020-12-12'
-  })
-  .then(function (notification) {
-    console.log('Response:',
-      util.inspect(notification, false, null));
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .updateBillet(params, body)
+  .then(console.log)
+  .catch(console.log)
   .done();

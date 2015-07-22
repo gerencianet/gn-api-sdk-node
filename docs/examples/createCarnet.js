@@ -9,7 +9,7 @@ var options = {
   sandbox: true
 }
 
-var carnetInput = {
+var body = {
   items: [{
     name: 'Carnet Item 1',
     value: 1000,
@@ -29,11 +29,7 @@ var carnetInput = {
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .createCarnet(carnetInput)
-  .then(function (carnet) {
-    console.log('Response:', carnet);
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .createCarnet({}, body)
+  .then(console.log)
+  .catch(console.log)
   .done();

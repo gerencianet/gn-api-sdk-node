@@ -1,6 +1,5 @@
 'use strict';
 
-var util = require('util');
 var Gerencianet = require('gn-api-sdk-node');
 var credentials = require('./credentials');
 
@@ -10,17 +9,14 @@ var options = {
   sandbox: true
 }
 
+var params = {
+  id: 1000
+}
+
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .deletePlan({
-    plan_id: 1
-  })
-  .then(function (plan) {
-    console.log('Response:',
-      util.inspect(plan, false, null));
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .deletePlan(params)
+  .then(console.log)
+  .catch(console.log)
   .done();

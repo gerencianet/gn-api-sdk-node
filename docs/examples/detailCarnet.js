@@ -1,6 +1,5 @@
 'use strict';
 
-var util = require('util');
 var Gerencianet = require('gn-api-sdk-node');
 var credentials = require('./credentials');
 
@@ -10,17 +9,14 @@ var options = {
   sandbox: true
 }
 
+var params = {
+  id: 1002
+}
+
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .detailCarnet({
-    carnet_id: 6
-  })
-  .then(function (carnet) {
-    console.log('Response:',
-      util.inspect(carnet, false, null));
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .detailCarnet(params)
+  .then(console.log)
+  .catch(console.log)
   .done();

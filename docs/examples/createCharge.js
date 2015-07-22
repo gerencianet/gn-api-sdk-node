@@ -9,7 +9,7 @@ var options = {
   sandbox: true
 }
 
-var chargeInput = {
+var body = {
   items: [{
     name: 'Product 1',
     value: 1000,
@@ -24,11 +24,7 @@ var chargeInput = {
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .createCharge(chargeInput)
-  .then(function (charge) {
-    console.log('Response:', charge);
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .createCharge({}, body)
+  .then(console.log)
+  .catch(console.log)
   .done();

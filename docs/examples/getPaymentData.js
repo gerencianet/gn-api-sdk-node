@@ -1,6 +1,5 @@
 'use strict';
 
-var util = require('util');
 var Gerencianet = require('gn-api-sdk-node');
 var credentials = require('./credentials');
 
@@ -10,7 +9,7 @@ var options = {
   sandbox: true
 }
 
-var paymentDataInput = {
+var params = {
   type: 'visa',
   total: 5000
 }
@@ -18,11 +17,7 @@ var paymentDataInput = {
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .getPaymentData(paymentDataInput)
-  .then(function (installments) {
-    console.log('Response:',
-      util.inspect(installments, false, null));
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  });
+  .getInstallments(params)
+  .then(console.log)
+  .catch(console.log)
+  .done();
