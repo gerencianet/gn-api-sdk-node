@@ -1,6 +1,5 @@
 'use strict';
 
-var util = require('util');
 var Gerencianet = require('gn-api-sdk-node');
 var credentials = require('./credentials');
 
@@ -10,17 +9,14 @@ var options = {
   sandbox: true
 }
 
+var params = {
+  id: 1001
+}
+
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .detailCharge({
-    id: 1001
-  })
-  .then(function (charge) {
-    console.log('Response:',
-      util.inspect(charge, false, null));
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .detailCharge(params)
+  .then(console.log)
+  .catch(console.log)
   .done();

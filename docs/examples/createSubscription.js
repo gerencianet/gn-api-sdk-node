@@ -9,13 +9,13 @@ var options = {
   sandbox: true
 }
 
-var planInput = {
+var planBody = {
   name: 'My first plan',
   repeats: 24,
   interval: 2
 }
 
-var subscriptionInput = {
+var subscriptionBody = {
   items: [{
     name: 'Product 1',
     value: 1000,
@@ -25,18 +25,17 @@ var subscriptionInput = {
 
 var gerencianet = new Gerencianet(options);
 
-var createPlanCallback = function (response) {
-  console.log(response);
-  if (response.code === 200) {
-    subscriptionInput.plan_id = response.data.plan_id;
-    return gerencianet.createSubscription(subscriptionInput);
-  } else {
-    throw new Error();
+var createSubscription = function (response) {
+  var params = {
+    id: response.data.plan_id
   }
+
+  return gerencianet.createSubscription(params, subscriptionBody);
 }
 
 gerencianet
-  .createPlan(planInput)
-  .then(createPlanCallback)
+  .createPlan({}, planBody)
+  .then(createSubscription)
   .then(console.log)
-  .catch(console.log);
+  .catch(console.log)
+  .done();

@@ -9,7 +9,7 @@ var options = {
   sandbox: true
 }
 
-var chargeInput = {
+var chargeBody = {
   items: [{
     name: 'Product 1',
     value: 1000,
@@ -24,23 +24,11 @@ var chargeInput = {
   }]
 }
 
-var customerInput = {
-  charge_id: 223,
-  customer: {
-    name: 'Gorbadoc Oldbuck',
-    email: 'oldbuck@gerencianet.com.br',
-    cpf: '04267484171',
-    birth: '1977-01-15',
-    phone_number: '5144916523'
-  }
-}
-
-var paymentInput = {
-  charge_id: 223,
+var paymentBody = {
   payment: {
     credit_card: {
       installments: 1,
-      payment_token: '6f4c6e7007531a4e2e4d8dabfe49104ac3912c46',
+      payment_token: '8c888fe1e7d96112020cf9fcf5e4db5b9dba5cf6',
       billing_address: {
         street: 'Street 3',
         number: 10,
@@ -48,6 +36,13 @@ var paymentInput = {
         zipcode: '35400000',
         city: 'Ouro Preto',
         state: 'MG'
+      },
+      customer: {
+        name: 'Gorbadoc Oldbuck',
+        email: 'oldbuck@gerencianet.com.br',
+        cpf: '04267484171',
+        birth: '1977-01-15',
+        phone_number: '5144916523'
       }
     }
   }
@@ -55,21 +50,17 @@ var paymentInput = {
 
 var gerencianet = new Gerencianet(options);
 
-var associateChargeCustomer = function (response) {
-  console.log(response);
-  customerInput.charge_id = response.data.charge_id;
-  paymentInput.charge_id = response.data.charge_id;
-  return gerencianet.associateChargeCustomer(customerInput);
-}
-
 var payCharge = function (response) {
-  console.log(response);
-  return gerencianet.payCharge(paymentInput)
+  var params = {
+    id: response.data.charge_id
+  }
+
+  return gerencianet.payCharge(params, paymentBody);
 }
 
 gerencianet
-  .createCharge(chargeInput)
-  .then(associateChargeCustomer)
+  .createCharge({}, chargeBody)
   .then(payCharge)
   .then(console.log)
-  .catch(console.log);
+  .catch(console.log)
+  .done();

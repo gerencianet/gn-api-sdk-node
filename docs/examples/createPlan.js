@@ -9,20 +9,18 @@ var options = {
   sandbox: true
 }
 
-var planInput = {
-    name: 'My first plan',
-    repeats: 24,
-    interval: 2
+var params = {}
+
+var body = {
+  name: 'My first plan',
+  repeats: 24,
+  interval: 2
 }
 
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .createPlan(planInput)
-  .then(function (plan) {
-    console.log('Response:', plan);
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .createPlan(params, body)
+  .then(console.log)
+  .catch(console.log)
   .done();

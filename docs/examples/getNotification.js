@@ -1,6 +1,5 @@
 'use strict';
 
-var util = require('util');
 var Gerencianet = require('gn-api-sdk-node');
 var credentials = require('./credentials');
 
@@ -10,17 +9,14 @@ var options = {
   sandbox: true
 }
 
+var params = {
+  token: '252948279264ee47e117cb099ef81'
+}
+
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .getNotification({
-    notification: '25294827-5926-4ee4-b7e1-d17cb099ef81'
-  })
-  .then(function (notification) {
-    console.log('Response:',
-      util.inspect(notification, false, null));
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .getNotification(params)
+  .then(console.log)
+  .catch(console.log)
   .done();
