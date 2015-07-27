@@ -62,7 +62,7 @@ gerencianet
 ```
 
 ### Deleting a plan:
-*(works just for plans that hasn't a subscription associated):*
+*(works just for plans that doesn't have a subscription associated):*
 
 ```js
 gerencianet
@@ -78,6 +78,23 @@ gerencianet
   })
   .done();
 ```
+
+### Listing plans
+
+```js
+var params = {
+  name: 'My First Plan',
+  limit: 50,
+  offset: 10
+}
+
+gerencianet
+  .getPlans(params)
+  .then(console.log)
+  .catch(console.log)
+  .done();
+```
+
 
 ### Canceling subscriptions
 
