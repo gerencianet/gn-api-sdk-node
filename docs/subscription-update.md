@@ -2,24 +2,24 @@
 
 ### Changing the metadata
 
-You can update the `custom_id` or the `notification_url` of a subscription at any time you want.
+You can update the `custom_id` or the `notification_url` of a subscription.
 
-Is important to know that it updates all the charges of the subscription. If you want to update only one, see [Updating charges](/docs/charge-update).
+It is important to keep in mind that all the subscription charges will be updated. If you want to update only one, check [Updating charges](/docs/charge-update).
 
 ```js
+var params = {
+  id: 1009
+}
+
+var body = {
+  notification_url: 'http://yourdomain.com',
+  custom_id: 'my_new_id'
+}
+
 gerencianet
-  .updateSubscriptionMetadata({
-    charge_id: 233,
-    notification_url: 'http://yourdomain.com/my_new_route',
-    custom_id: 'my_new_id'
-  })
-  .then(function (notification) {
-    console.log('Response:',
-      util.inspect(notification, false, null));
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .updateSubscriptionMetadata(params, body)
+  .then(console.log)
+  .catch(console.log)
   .done();
 ```
 

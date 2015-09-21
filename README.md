@@ -102,7 +102,10 @@ $ npm test
 ### Charges
 
 - [Creating charges](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charges.md)
+<<<<<<< HEAD
 - [Associating a customer](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/associate-customer.md)
+=======
+>>>>>>> dev
 - [Paying a charge](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-payment.md)
 - [Detailing charges](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-detailing.md)
 - [Updating informations](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-update.md)
@@ -130,7 +133,7 @@ $ npm test
 
 ### Payments
 
-- [Getting the payment data](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/payment-data.md)
+- [Getting installments](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/installments.md)
 
 ### All in one
 

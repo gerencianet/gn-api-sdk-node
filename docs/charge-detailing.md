@@ -10,18 +10,18 @@ var gerencianet = new Gerencianet(options);
 It's very simple to get details from a charge. You just need the id:
 
 ```js
+var params = {
+  id: 1001
+}
+
 gerencianet
-  .detailCharge({
-    charge_id: 233
-  })
-  .then(function (charge) {
-    console.log(util.inspect(charge, false, null));
-  })
+  .detailCharge(params)
+  .then(console.log)
   .catch(console.log)
   .done();
 ```
 
-As response, you will receive all information about the charge (including if it belongs to a subscription or carnet):
+As response, you will receive all the information about the charge (including if it belongs to a subscription or carnet):
 
 ```js
 {

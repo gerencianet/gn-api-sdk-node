@@ -17,15 +17,13 @@ The example below assumes that you're using *express js* with *body-parser*, so 
 
 ```js
 app.post('/notifications', function(req, res) {
-  var notificationToken = req.body.notification,
+  params = {
+    token: req.body.notification
+  }
 
   gerencianet
-    .getNotification({
-      notification: notificationToken
-    })
-    .then(function (notification) {
-      console.log(util.inspect(notification, false, null));
-    })
+    .getNotification(params)
+    .then(console.log)
     .catch(console.log)
     .done();
 });

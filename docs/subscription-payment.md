@@ -1,21 +1,19 @@
 ## Paying subscriptions
 
-There is only one way of giving sequence to a subscription: you need to use the customer's *credit card* to submit the payment.
-
-As we know, the credit card information is confidential, so, you need to prepare your system to send this information in a securely way. See how to send it and receive the paymnet token in our official documentation. Here we show how to do the backend part.
-
-Instantiate the module:
+There is only one way of giving sequence to a subscription: you need to use the customer's *credit card* to submit the payment. As explained in the last section of this page, a `payment_token` represents a credit card:
 
 ```js
 var Gerencianet = require('gn-api-sdk-node');
 var gerencianet = new Gerencianet(options);
 
-var paymentInput = {
-  subscription_id: 11,
+var params = {
+  id: 1000
+}
+
+var body = {
   payment: {
     credit_card: {
-      installments: 1,
-      payment_token: '6426f3abd8688639c6772963669bbb8e0eb3c319',
+      payment_token: '33ffd6d982cd63f767fb2ee5c458cd39e8fc0ea0',
       billing_address: {
         street: 'Street 3',
         number: 10,
@@ -23,13 +21,20 @@ var paymentInput = {
         zipcode: '35400000',
         city: 'Ouro Preto',
         state: 'MG'
+      },
+      customer: {
+        name: 'Gorbadoc Oldbuck',
+        email: 'oldbuck@gerencianet.com.br',
+        cpf: '04267484171',
+        birth: '1977-01-15',
+        phone_number: '5144916523'
       }
     }
   }
 }
 
 gerencianet
-  .paySubscription(paymentInput)
+  .paySubscription(params, body)
   .then(console.log)
   .catch(console.log)
   .done();
@@ -50,7 +55,7 @@ If everything went well, the response will come with total value, installments n
 }
 ```
 
-To know every installment value including interests for each brand, you can see [Getting the Payment Data](/docs/payment-data.md).
+For getting installment values, including interests, check [Getting Installments](/docs/payment-data.md).
 
 
 ##### Payment tokens
