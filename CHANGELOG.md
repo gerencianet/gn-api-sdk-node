@@ -1,3 +1,7 @@
+# 0.0.11
+
+- Updated: notification docs
+
 # 0.0.10
 
 - Updated: gn-constants - added new endpoints
