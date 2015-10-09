@@ -26,6 +26,8 @@ Response:
     "value": 2000,
     "status": "new",
     "payment_method": null,
+    "next_execution": null,
+    "next_expire_at": null,
     "interval": 1,
     "repeats": 2,
     "processed_amount": 0,
@@ -41,7 +43,7 @@ Response:
 }
 ```
 
-Note that if you [detail a charge](/docs/charge-detailing.md) that belongs to a subscription, the response will have a `subscription_id`. If you need the subscription information, you can concat the calls like this:
+Note that if you [detail a charge](/docs/charge-detailing.md) that belongs to a subscription, the response will have a `subscription` block with data about it, including the `subscription_id`. If you need the subscription information, you can concat the calls like this:
 
 ```js
 

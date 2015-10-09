@@ -23,7 +23,7 @@ gerencianet
   .done();
 ```
 
-If everything goes well. the return will be:
+If everything goes well, the return will be:
 
 ```js
 {

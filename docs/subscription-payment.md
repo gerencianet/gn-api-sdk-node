@@ -1,11 +1,56 @@
 ## Paying subscriptions
 
-There is only one way of giving sequence to a subscription: you need to use the customer's *credit card* to submit the payment. As explained in the last section of this page, a `payment_token` represents a credit card:
+There is two ways of giving sequence to a subscription *banking billet* or *credit card*.
+
+Instantiate the module:
 
 ```js
 var Gerencianet = require('gn-api-sdk-node');
 var gerencianet = new Gerencianet(options);
+```
 
+
+### 1. Banking billets
+
+To submit the payment with banking billet, you just need define the customer and the expire at to first charge:
+
+```js
+var tenDaysFromNow = moment()
+  .add(10, 'days')
+  .format('YYYY-MM-DD 00:00:00');
+
+var params = {
+  id: 1000
+}
+
+var body = {
+  payment: {
+    banking_billet: {
+      expire_at: tenDaysFromNow,
+      customer: {
+        name: 'Gorbadoc Oldbuck',
+        email: 'oldbuck@gerencianet.com.br',
+        cpf: '04267484171',
+        birth: '1977-01-15',
+        phone_number: '5144916523'
+      }
+    }
+  }
+}
+
+gerencianet
+  .paySubscription(params, body)
+  .then(console.log)
+  .catch(console.log)
+  .done();
+```
+
+
+### 2. Credit card
+
+In case of credit card, it's necessary to use the customer's *credit card* to submit the payment. As explained in the last section of this page, a `payment_token` represents a credit card:
+
+```js
 var params = {
   id: 1000
 }
@@ -40,20 +85,29 @@ gerencianet
   .done();
 ```
 
-If everything went well, the response will come with total value, installments number and the value oh each installment:
+If everything went well, the response will come with total value:
 
 ```js
 {
   "code": 200,
   "data": {
     "subscription_id": 11,
+    "status": "active",
+    "plan": {
+      "id": 1000,
+      "interval": 2,
+      "repeats": null
+    },
+    "charge": {
+      "id": 1053,
+      "status": "waiting"
+    },
     "total": 1150,
-    "payment": "credit_card",
-    "installments": 1,
-    "installment_value": 1150
+    "payment": "credit_card"
   }
 }
 ```
+
 
 For getting installment values, including interests, check [Getting Installments](/docs/payment-data.md).
 

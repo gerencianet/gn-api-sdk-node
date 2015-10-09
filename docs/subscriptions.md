@@ -1,6 +1,8 @@
 ## Creating subscriptions
 
-If you ever have to recurrently charge your clients, you can create a different kind of charge, one that belongs to a subscription. This way, subsequent charges will be automatically created and charged in your customers credit card, based on the interval and repetitions supplied in a plan configuration.
+If you ever have to recurrently charge your clients, you can create a different kind of charge, one that belongs to a subscription. This way, subsequent charges will be automatically created based on plan configuration and the charge value is charged in your customers' credit card, or the banking billet is generated and sent to costumer, accoding to plan’s configuration.
+
+The plan configuration receive two params, that are repeats and interval:
 
 The `repeats` parameter defines how many times the transaction will be repeated. If you don't provide it, the subscription will create charges indefinitely.
 
@@ -63,8 +65,7 @@ You can cancel active subscriptions at any time:
 
 ```js
 var params = {
-  id: 18,
-  customer: true
+  id: 18
 }
 
 gerencianet
@@ -79,5 +80,3 @@ gerencianet
   "code": 200
 }
 ```
-
-The `customer` attribute above indicates who is triggering the cancellation, the customer or the one providing the service. In this case, the customer decided not to continue with the subscription.
