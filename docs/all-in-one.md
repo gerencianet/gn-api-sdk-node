@@ -40,8 +40,8 @@ var paymentInput = {
       installments: 1,
       payment_token: 'fec500b1f3eb16615ca61f7c4781f51dcde49131',
       billing_address: {
-        street: 'Street 3',
-        number: 10,
+        street: 'Av. JK',
+        number: 909,
         neighborhood: 'Bauxita',
         zipcode: '35400000',
         city: 'Ouro Preto',

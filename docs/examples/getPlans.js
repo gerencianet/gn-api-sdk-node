@@ -11,7 +11,7 @@ var options = {
 
 var params = {
   name: 'My Plan',
-  limit: 50,
+  limit: 20,
   offset: 0
 }
 

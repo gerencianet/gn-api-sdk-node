@@ -10,7 +10,7 @@ var options = {
 }
 
 var params = {
-  id: 1000
+  id: 0
 }
 
 var body = {
@@ -18,8 +18,8 @@ var body = {
     credit_card: {
       payment_token: '33ffd6d982cd63f767fb2ee5c458cd39e8fc0ea0',
       billing_address: {
-        street: 'Street 3',
-        number: 10,
+        street: 'Av. JK',
+        number: 909,
         neighborhood: 'Bauxita',
         zipcode: '35400000',
         city: 'Ouro Preto',

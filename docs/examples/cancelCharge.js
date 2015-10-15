@@ -10,7 +10,7 @@ var options = {
 }
 
 var params = {
-	id: 1001
+	id: 0
 }
 
 var gerencianet = new Gerencianet(options);
