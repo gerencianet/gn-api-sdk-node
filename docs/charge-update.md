@@ -2,22 +2,22 @@
 
 ### Changing the metadata
 
-You can update the `custom_id` or the `notification_url` of a charge at any time you want:
+You can update the `custom_id` or the `notification_url` of a charge:
 
 ```js
+var params = {
+  id: 1008
+}
+
+var body = {
+  notification_url: 'http://yourdomain.com',
+  custom_id: 'my_new_id'
+}
+
 gerencianet
-  .updateChargeMetadata({
-    charge_id: 233,
-    notification_url: 'http://yourdomain.com/my_new_route',
-    custom_id: 'my_new_id'
-  })
-  .then(function (notification) {
-    console.log('Response:',
-      util.inspect(notification, false, null));
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .updateChargeMetadata(params, body)
+  .then(console.log)
+  .catch(console.log)
   .done();
 ```
 
@@ -31,23 +31,21 @@ If everything goes well, the return will be:
 
 ### Updating the expiration date of a billet
 
-To update or set a expiration date to a charge, the charge must have a `waiting` or `unpaid` status, and the payment method choosed must be `banking_billet`.
-
-If the charge contemplates these requirements, you just have to provide the charge id and a new expiration date:
+Only charges with status `waiting` or `unpaid` and with payment method `banking_billet` can have the `expire_at` changed:
 
 ```js
+var params = {
+  id: 1008
+}
+
+var body = {
+  expire_at: '2020-12-12'
+}
+
 gerencianet
-  .updateBillet({
-    charge_id: 233,
-    expire_at: '2020-12-12'
-  })
-  .then(function (notification) {
-    console.log('Response:',
-      util.inspect(notification, false, null));
-  })
-  .catch(function (err) {
-    console.log('Error:', err);
-  })
+  .updateBillet(params, body)
+  .then(console.log)
+  .catch(console.log)
   .done();
 ```
 

@@ -14,7 +14,7 @@ var gerencianet = new Gerencianet(options);
 Create the charge object including a marketplace object:
 
 ```js
-var chargeInput = {
+var body = {
   items: [{
     name: 'Product A',
     value: 1000,
@@ -39,7 +39,7 @@ Create the charge:
 
 ```js
 gerencianet
-  .createCharge(chargeInput)
+  .createCharge({}, body)
   .then(console.log)
   .catch(console.log);
 ```
