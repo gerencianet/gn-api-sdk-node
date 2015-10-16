@@ -1,3 +1,7 @@
+# 0.0.12
+- Updated: code examples
+- Updated: docs
+
 # 0.0.11
 
 - Refactored: gn-auth - client credentials are now sent within the header
