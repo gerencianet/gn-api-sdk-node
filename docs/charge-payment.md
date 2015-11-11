@@ -193,6 +193,7 @@ var body = {
   }
 }
 ```
+
 Discounts for banking billets works similar to credit cards. You just need to add the `discount` attribute.
 
 The discount may be applied as percentage or with a previous calculated value.
