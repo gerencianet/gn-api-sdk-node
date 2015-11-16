@@ -106,6 +106,7 @@ $ npm test
 - [Paying a charge](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-payment.md)
 - [Detailing charges](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-detailing.md)
 - [Updating informations](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-update.md)
+- [Resending billet](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/resend-billet.md)
 
 ### Carnets
 
