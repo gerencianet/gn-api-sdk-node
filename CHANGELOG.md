@@ -1,3 +1,7 @@
+# 0.0.13
+- Added: new endpoint (resend billet)
+- Updated: docs
+
 # 0.0.12
 - Updated: code examples
 - Updated: docs
