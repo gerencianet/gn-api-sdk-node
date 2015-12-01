@@ -43,7 +43,7 @@ As response, you will receive all the information about the charge (including if
     ],
     "history": [
       {
-        "status": "new",
+        "message": "Cobrança criada",
         "created_at": "2015-05-14 15:39:14"
       }
     ]
