@@ -1,3 +1,8 @@
+# 0.0.14
+- Added: new endpoint (charge history)
+- Added: custom header
+- Updated: docs
+
 # 0.0.13
 - Added: new endpoint (resend billet)
 - Updated: docs
