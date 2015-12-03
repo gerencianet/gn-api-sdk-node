@@ -107,6 +107,7 @@ $ npm test
 - [Detailing charges](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-detailing.md)
 - [Updating informations](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-update.md)
 - [Resending billet](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/resend-billet.md)
+- [Adding information to charge history](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-create-history.md)
 
 ### Carnets
 
