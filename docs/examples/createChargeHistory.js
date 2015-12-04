@@ -20,7 +20,7 @@ var body = {
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .chargeCreateHistory(params, body)
+  .createChargeHistory(params, body)
   .then(console.log)
   .catch(console.log)
   .done();
