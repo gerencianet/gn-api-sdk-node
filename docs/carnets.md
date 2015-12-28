@@ -183,7 +183,7 @@ Check out the response:
 {
   "code": 200,
   "data": {
-    "carnet_id": 6,
+    "carnet_id": 1002,
     "cover": "https://visualizacao.gerencianet.com.br/emissao/28333_2385_ZEMAL5/A5CC-28333-61428-LEENA9/28333-61428-LEENA9",
     "charges": [{
         "charge_id": 357,

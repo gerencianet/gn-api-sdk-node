@@ -22,7 +22,7 @@ The response you'll receive contains all the information about the carnet:
 {
   "code": 200,
   "data": {
-    "carnet_id": 6,
+    "carnet_id": 1002,
     "status": "active",
     "repeats": 4,
     "cover": "https://visualizacao.gerencianet.com.br/emissao/28333_2385_ZEMAL5/A5CC-28333-61428-LEENA9/28333-61428-LEENA9",
@@ -60,6 +60,13 @@ The response you'll receive contains all the information about the carnet:
         "expire_at": '2015-09-01',
         "url": "https://visualizacao.gerencianet.com.br/emissao/28333_2385_ZEMAL5/A5CL-28333-61428-LEENA9/28333-61431-HIRRA4",
         "barcode": "00190.00009 01523.894002 00061.428181 5 65400000002000"
+      }
+    ],
+    "created_at": "2015-08-23 16:52:58",
+    "history": [
+      {
+        "message": "Carnê ativo",
+        "created_at": "2015-08-23 16:52:59"
       }
     ]
   }
