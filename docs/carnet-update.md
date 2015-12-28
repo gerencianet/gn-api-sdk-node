@@ -39,11 +39,11 @@ Only parcels with status `waiting` or `unpaid` can have expiration date set or u
 
 ```js
 var params = {
-  id: 1008
+  id: 1008,
+  parcel: 1
 }
 
 var body = {
-  parcel: 1,
   expire_at: '2020-12-12'
 }
 

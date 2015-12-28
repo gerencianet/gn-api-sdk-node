@@ -79,7 +79,7 @@ Response:
   "data": {
      "charge_id": 260,
      "total": 2250,
-     "status": 'new',
+     "status": "new",
      "custom_id": null,
      "created_at": "2015-05-18"
    }
