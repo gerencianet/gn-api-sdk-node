@@ -2,7 +2,7 @@
 
 To resend the carnet parcel, the parcel must have a `waiting` status.
 
-If the parcel contemplates this requirement, you just have to provide the carnet id, the parcel number and a email to resend the parcel:
+If the parcel contemplates this requirement, you just have to provide the carnet id, the parcel number and a email to resend it:
 
 ```js
 var params = {
