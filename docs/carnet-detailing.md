@@ -26,7 +26,7 @@ The response you"ll receive contains all the information about the carnet:
     "status": "active",
     "repeats": 4,
     "cover": "https://visualizacao.gerencianet.com.br/emissao/28333_2385_ZEMAL5/A5CC-28333-61428-LEENA9/28333-61428-LEENA9",
-    "value": 4000,
+    "value": 8000,
     "split_items": false,
     "charges": [{
         "charge_id": 357,
