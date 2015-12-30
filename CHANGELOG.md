@@ -1,3 +1,8 @@
+# 0.0.15
+- Added: new endpoint (carnet history)
+- Added: new endpoint (carnet resend)
+- Updated: docs
+
 # 0.0.14
 - Added: new endpoint (charge history)
 - Added: custom header
