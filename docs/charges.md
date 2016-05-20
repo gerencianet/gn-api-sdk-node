@@ -58,25 +58,6 @@ var body = {
 
 The `notification_url` property will be used for sending notifications once things happen with charges statuses, as when it's payment was approved, for example. More about notifications [here](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/notifications.md). The `custom_id` property can be used to set your own reference to the charge.
 
-## Post office service:
-
-If you want the charge to arrive at your house or at your client's house, you can count on Gerencianet's post office service. Just send an extra attribute:
-
-```js
-var body = {
-  items: [{
-    name: 'Product A',
-    value: 1000,
-    amount: 2
-  }],
-  post_office_service: {
-    send_to: 'customer'
-  }
-}
-```
-
-If `send_to` is set to *customer*, the charge arrives at you customer's. If it is set to *seller*, just wait for it to arrive at your place. It's awesome!
-
 ### Finally, create the charge:
 
 ```js

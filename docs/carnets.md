@@ -8,7 +8,6 @@ The carnets can also be generated with the `metadata` attribute, just like in th
 
 There are other optional params:
 
-- `post_office_service`, which tells if the carnet must be sent via post office service (to you or to your clients)
 - `split_items`, identifying if the total value must be splitted among the charges (defaults to `false`)
 - The carnet `instructions`
 
@@ -66,35 +65,6 @@ var body = {
 ```
 
 The `notification_url` property will be used for sending notifications once things happen with charges statuses, as when it's payment was approved, for example. More about notifications [here](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/notifications.md). The `custom_id` property can be used to set your own reference to the carnet.
-
-### Required properties plus post office service information **(optional)**:
-
-If you want the carnet to arrive at your house or at your client's house, you can count on Gerencianet's post office service. Just send an extra attribute:
-
-```js
-var body = {
-  items: [{
-    name: 'Carnet Item 1',
-    value: 1000,
-    amount: 2
-  }],
-  customer: {
-    name: 'Gorbadoc Oldbuck',
-    email: 'oldbuck@gerencianet.com.br',
-    cpf: '04267484171',
-    birth: '1977-01-15',
-    phone_number: '5144916523'
-  },
-  repeats: 4,
-  expire_at: '2020-06-01',
-  post_office_service: {
-    send_to: 'customer'
-  }
-}
-```
-
-If `send_to` is set to *customer*, the carnet arrives at you customer's. If it is set to *seller*, just wait for it to arrive at your place!
-
 
 ### split_items attribute **(optional)**
 
