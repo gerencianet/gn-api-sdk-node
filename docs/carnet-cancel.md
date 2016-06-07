@@ -1,6 +1,6 @@
 ### Canceling the carnet
 
-You can cancel active carnet:
+You can cancel `active` carnet:
 
 ```js
 var params = {

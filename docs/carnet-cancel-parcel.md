@@ -1,6 +1,6 @@
 ### Canceling carnet parcel
 
-You can cancel carnet parcel. To this, the charge status must be new, waiting or unpaid.
+You can cancel carnet parcel. To this, the charge status must be `new`, `waiting` or `unpaid`.
 
 ```js
 var params = {
