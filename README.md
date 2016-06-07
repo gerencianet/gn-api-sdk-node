@@ -117,6 +117,8 @@ $ npm test
 - [Resending the carnet](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-resend.md)
 - [Resending carnet parcel](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-resend-parcel.md)
 - [Adding information to carnet history](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-create-history.md)
+- [Canceling the carnet](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-cancel.md)
+- [Canceling carnet parcel](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-cancel-parcel.md)
 
 ### Subscriptions
 
