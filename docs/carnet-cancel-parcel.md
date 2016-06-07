@@ -15,6 +15,8 @@ gerencianet
   .done();
 ```
 
+If everything goes well, the return will be:
+
 ```js
 {
   "code": 200
