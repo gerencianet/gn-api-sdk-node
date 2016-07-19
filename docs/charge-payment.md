@@ -60,7 +60,7 @@ You'll receive the payment info in the callback, such as the barcode and the bil
 }
 ```
 
-If you want the banking billet to have extra instructions, it's possible to send a maximum of 4 different instructions with a maximum of 90 caracters, just as follows:
+If you want the carnet billet to have a message to customer, it's possible to send a message with a maximum of 255 caracters, just as follows:
 
 ```js
 var body = {
@@ -74,20 +74,47 @@ var body = {
         birth: '1977-01-15',
         phone_number: '5144916523'
       },
-      instructions: [
-        "Pay only with money",
-        "Do not pay with gold"
-      ]
+      message: "The delivery time is counted in working days, in other words not inlclude Saturdays, Sundays and holidays"
     }
   }
 }
 ```
+
+If you want the carnet billet to have own configurations. It's possible to send:
+- `fine`: it's the amount charged after expiration. Ex.: If you want 2%, you must send 200.
+- `interest`: it's the amount charged after expiration by day. Ex.: If you want 0.033%, you must send 33.
+- `show_information`: Sets if you want the customer see your name, phone and address. This parameter is an `array` with the data that can show. If you don't want show anything, just send `null` to this parameter.
+
+```js
+var body = {
+  payment: {
+    banking_billet: {
+      expire_at: tenDaysFromNow,
+      customer: {
+        name: 'Gorbadoc Oldbuck',
+        email: 'oldbuck@gerencianet.com.br',
+        cpf: '04267484171',
+        birth: '1977-01-15',
+        phone_number: '5144916523'
+      },
+      configurations: {
+        fine: 200,
+        interest: 33,
+        show_information: ["name", "address", "phone"]
+      }
+    }
+  }
+}
+```
+
 
 ### 2. Credit card
 
 The most common payment method is to use a credit card in order to make things happen faster. Paying a charge with a credit card in Gerencianet is as simples as generating a banking billet, as seen above.
 
 The difference here is that we need to provide some extra information, as a `billing_address` and a `payment_token`. The former is used to make an anti-fraud analyze before accepting/appoving the payment, the latter identifies a credit card at Gerencianet, so that you don't need to bother about keeping track of credit card numbers. The `installments` attribute is self-explanatory.
+
+To credit card is also possible to send `message` and `configurations` like in `banking_billet`. For more information, see the previous topic.
 
 We'll talk about getting payment tokens later. For now, let's take a look at the snipet that does the work we're aiming for:
 

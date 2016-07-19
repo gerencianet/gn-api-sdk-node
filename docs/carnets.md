@@ -9,7 +9,8 @@ The carnets can also be generated with the `metadata` attribute, just like in th
 There are other optional params:
 
 - `split_items`, identifying if the total value must be splitted among the charges (defaults to `false`)
-- The carnet `instructions`
+- The carnet `message`
+- The carnet `configurations`
 
 Instantiate the module:
 
@@ -90,9 +91,9 @@ var body = {
 }
 ```
 
-### Setting instructions **(optional)**
+### Setting message to customer **(optional)**
 
-If you want the carnet billet to have extra instructions, it's possible to send a maximum of 4 different instructions with a maximum of 90 caracters, just as follows:
+If you want the carnet billet to have a message to customer, it's possible to send a message with a maximum of 255 caracters, just as follows:
 
 ```js
 var body = {
@@ -110,12 +111,41 @@ var body = {
   },
   repeats: 4,
   expire_at: '2020-06-01',
-  instructions: [
-    "Pay only with money",
-    "Do not pay with gold"
-  ]
+  message: "The delivery time is counted in working days, in other words not inlclude Saturdays, Sundays and holidays"
 }
 ```
+
+### Setting configurations **(optional)**
+
+If you want the carnet billet to have own configurations. It's possible to send:
+- `fine`: it's the amount charged after expiration. Ex.: If you want 2%, you must send 200.
+- `interest`: it's the amount charged after expiration by day. Ex.: If you want 0.033%, you must send 33.
+- `show_information`: Sets if you want the customer see your name, phone and address. This parameter is an `array` with the data that can show. If you don't want show anything, just send `null` to this parameter.
+
+```js
+var body = {
+  items: [{
+    name: 'Carnet Item 1',
+    value: 1000,
+    amount: 2
+  }],
+  customer: {
+    name: 'Gorbadoc Oldbuck',
+    email: 'oldbuck@gerencianet.com.br',
+    cpf: '04267484171',
+    birth: '1977-01-15',
+    phone_number: '5144916523'
+  },
+  repeats: 4,
+  expire_at: '2020-06-01',
+  configurations: {
+    fine: 200,
+    interest: 33,
+    show_information: ["name", "address", "phone"]
+  }
+}
+```
+
 
 ### Finally, create the carnet:
 
