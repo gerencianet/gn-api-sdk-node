@@ -60,7 +60,7 @@ You'll receive the payment info in the callback, such as the barcode and the bil
 }
 ```
 
-If you want the charge billet to have a message to customer, it's possible to send a message with a maximum of 255 caracters, just as follows:
+If you want the banking billet to have a message to customer, it's possible to send a message with a maximum of 255 caracters, just as follows:
 
 ```js
 var body = {
@@ -80,7 +80,7 @@ var body = {
 }
 ```
 
-If you want the charge billet to have own configurations. It's possible to send:
+If you want the banking billet to have own configurations. It's possible to send:
 - `fine`: it's the amount charged after expiration. Ex.: If you want 2%, you must send 200.
 - `interest`: it's the amount charged after expiration by day. Ex.: If you want 0.033%, you must send 33.
 
