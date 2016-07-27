@@ -83,7 +83,6 @@ var body = {
 If you want the charge billet to have own configurations. It's possible to send:
 - `fine`: it's the amount charged after expiration. Ex.: If you want 2%, you must send 200.
 - `interest`: it's the amount charged after expiration by day. Ex.: If you want 0.033%, you must send 33.
-- `show_information`: Sets if you want the customer see your name, phone and address. This parameter is an `array` with the data that can show. If you don't want show anything, just send `null` to this parameter.
 
 ```js
 var body = {
@@ -99,8 +98,7 @@ var body = {
       },
       configurations: {
         fine: 200,
-        interest: 33,
-        show_information: ["name", "address", "phone"]
+        interest: 33
       }
     }
   }
