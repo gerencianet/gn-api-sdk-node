@@ -1,3 +1,7 @@
+# 0.0.17
+- Added: new endpoint (link charge)
+- Updated: docs
+
 # 0.0.16
 - Added: new endpoint (cancel carnet)
 - Added: new endpoint (cancel parcel)
