@@ -2,4 +2,4 @@ languages:
    JavaScript: true
 
 exclude_paths:
- - "docs/examples/*.js"
+ - "examples/*.js"

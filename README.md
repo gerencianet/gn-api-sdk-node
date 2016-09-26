@@ -5,9 +5,6 @@ provided by [Gerencianet](http://gerencianet.com.br).
 
 [![NPM](https://nodei.co/npm/gn-api-sdk-node.png?downloads=true&stars=true)](https://nodei.co/npm/gn-api-sdk-node/)
 
-:warning: **Gerencianet API is under BETA version, meaning that it's not available for all users right now. If you're interested, you can always send an email to
-suportetecnico@gerencianet.com.br and we'll enable it for your account**
-
 [![Build Status](https://travis-ci.org/gerencianet/gn-api-sdk-node.svg)](https://travis-ci.org/gerencianet/gn-api-sdk-node)
 [![Code Climate](https://codeclimate.com/github/gerencianet/gn-api-sdk-node/badges/gpa.svg)](https://codeclimate.com/github/gerencianet/gn-api-sdk-node)
 [![Test Coverage](https://codeclimate.com/github/gerencianet/gn-api-sdk-node/badges/coverage.svg)](https://codeclimate.com/github/gerencianet/gn-api-sdk-node/coverage)
@@ -69,7 +66,7 @@ To run the examples, clone this repo and install the dependencies:
 
 ```bash
 $ git clone git@github.com:gerencianet/gn-api-sdk-node.git
-$ cd gn-api-sdk-node/docs/examples
+$ cd gn-api-sdk-node/examples
 $ npm install
 ```
 
@@ -100,48 +97,7 @@ $ npm test
 
 ## Additional documentation
 
-### Charges
-
-- [Creating charges](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charges.md)
-- [Paying a charge](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-payment.md)
-- [Detailing charges](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-detailing.md)
-- [Updating informations](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-update.md)
-- [Resending billet](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/resend-billet.md)
-- [Adding information to charge history](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-create-history.md)
-
-### Carnets
-
-- [Creating carnets](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnets.md)
-- [Detailing carnets](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-detailing.md)
-- [Updating informations](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-update.md)
-- [Resending the carnet](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-resend.md)
-- [Resending carnet parcel](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-resend-parcel.md)
-- [Adding information to carnet history](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-create-history.md)
-- [Canceling the carnet](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-cancel.md)
-- [Canceling carnet parcel](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/carnet-cancel-parcel.md)
-
-### Subscriptions
-
-- [Creating subscriptions](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/subscriptions.md)
-- [Paying a subscription](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/subscription-payment.md)
-- [Detailing subscriptions](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/subscription-detailing.md)
-- [Updating informations](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/subscription-update.md)
-
-### Marketplace
-
-- [Creating a marketplace](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/charge-with-marketplace.md)
-
-### Notifications
-
-- [Getting notifications](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/notifications.md)
-
-### Payments
-
-- [Getting installments](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/installments.md)
-
-### All in one
-
-- [Usage](https://github.com/gerencianet/gn-api-sdk-node/tree/master/docs/all-in-one.md)
+The full documentation with all available endpoints is in https://dev.gerencianet.com.br/.
 
 ## Changelog
 
