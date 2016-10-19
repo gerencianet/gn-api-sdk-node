@@ -17,6 +17,12 @@ provided by [Gerencianet](http://gerencianet.com.br).
 ```bash
 $ npm install gn-api-sdk-node
 ```
+## Tested with
+
+```
+node 0.12.7, 4.4.0 and 4.4.4
+```
+
 
 ## Basic usage
 
