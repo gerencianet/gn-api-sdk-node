@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var should = require('should');
 var proxyquire = require('proxyquire');
@@ -282,7 +282,7 @@ describe('GN', function () {
         gn.params = {
           id: 1,
           other: 'other'
-        }
+        };
 
         var params = gn.getParams('/charge/:id/:other');
         should(params.url)
@@ -296,7 +296,7 @@ describe('GN', function () {
           id: 1,
           name: 'name',
           lastName: 'lastName'
-        }
+        };
 
         var params = gn.getParams('/charge/:id');
         should(params.url)
@@ -307,11 +307,21 @@ describe('GN', function () {
       it('should not map empy params', function (done) {
         gn.params = {
           id: 1
-        }
+        };
 
         var params = gn.getParams('/charges/:missing');
         should(params.url)
           .equal('http://localhost/charges/:missing?id=1');
+        done();
+      });
+    });
+
+    describe('request headers', function () {
+      it('should forward partner token', function (done) {
+        gn.options.partner_token = 'my-partner-token';
+        var params = gn.getParams('/charge/:id');
+        should(params.headers['partner-token'])
+          .equal('my-partner-token');
         done();
       });
     });
