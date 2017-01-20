@@ -1,8 +1,11 @@
+# 0.0.19
+- Added: new endpoint (update charge link)
+
 # 0.0.18
 - Added: forward `partner-token` header
 
 # 0.0.17
-- Added: new endpoint (link charge)
+- Added: new endpoint (charge link)
 - Updated: docs
 
 # 0.0.16
