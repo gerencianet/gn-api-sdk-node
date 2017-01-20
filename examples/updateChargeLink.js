@@ -30,7 +30,7 @@ var body = {
 var gerencianet = new Gerencianet(options);
 
 gerencianet
-  .linkCharge(params, body)
+  .updateChargeLink(params, body)
   .then(console.log)
   .catch(console.log)
   .done();
