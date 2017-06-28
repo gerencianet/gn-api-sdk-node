@@ -60,7 +60,7 @@ var chargeInput = {
 }
 
 gerencianet
-  .createCharge(chargeInput)
+  .createCharge({}, chargeInput)
   .then(console.log)
   .catch(console.log)
   .done();
