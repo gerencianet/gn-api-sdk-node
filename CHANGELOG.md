@@ -1,3 +1,8 @@
+# 0.0.20
+
+- Added: new endpoint (update plan)
+- Added: new endpoint (create subscription history)
+
 # 0.0.19
 - Added: new endpoint (update charge link)
 
