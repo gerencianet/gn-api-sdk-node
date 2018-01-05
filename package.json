@@ -1,7 +1,7 @@
 {
   "name": "gn-api-sdk-node",
   "description": "Module for integration with Gerencianet API",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "author": "Francisco Carvalho <f.thiene@gmail.com>",
   "license": "MIT",
   "repository": "gerencianet/gn-api-sdk-node",
@@ -16,10 +16,10 @@
     "api"
   ],
   "dependencies": {
-    "q": "~1.4.0",
-    "request": "^2.36.0",
+    "q": "~1.5.1",
+    "request": "^2.83.0",
     "request-debug": "~0.2.0",
-    "oauth": "0.9.13"
+    "oauth": "0.9.15"
   },
   "devDependencies": {
     "mocha": "~2.2.4",

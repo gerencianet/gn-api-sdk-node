@@ -1,3 +1,7 @@
+# 0.0.21
+
+- Fix: dependencies
+
 # 0.0.20
 
 - Added: new endpoint (update plan)

@@ -20,7 +20,7 @@ $ npm install gn-api-sdk-node
 ## Tested with
 
 ```
-node 0.12.7, 4.4.0 and 4.4.4
+node 4.4.0 and 4.4.4
 ```
 
 
