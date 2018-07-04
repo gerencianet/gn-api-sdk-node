@@ -1,3 +1,7 @@
+# 0.0.22
+
+- Added: new endpoint (create charge balance sheet)
+
 # 0.0.21
 
 - Fix: dependencies
