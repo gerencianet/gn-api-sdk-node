@@ -1,3 +1,7 @@
+# 0.0.24
+
+- Updated: package.json
+
 # 0.0.23
 
 - Added: new endpoint (settle charge)

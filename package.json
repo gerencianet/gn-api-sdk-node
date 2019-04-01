@@ -1,7 +1,7 @@
 {
   "name": "gn-api-sdk-node",
   "description": "Module for integration with Gerencianet API",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "author": "Francisco Carvalho <f.thiene@gmail.com>",
   "license": "MIT",
   "repository": "gerencianet/gn-api-sdk-node",
