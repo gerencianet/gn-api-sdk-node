@@ -1,3 +1,8 @@
+# 0.0.25
+
+- Updated: package.json
+- Added: new endpoint (one step)
+
 # 0.0.24
 
 - Updated: package.json
