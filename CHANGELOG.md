@@ -1,3 +1,7 @@
+# 1.0.0
+
+- Stable release
+
 # 0.0.25
 
 - Updated: package.json
