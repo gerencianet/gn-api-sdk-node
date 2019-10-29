@@ -1,6 +1,6 @@
 {
   "dependencies": {
     "gn-api-sdk-node": "https://github.com/gerencianet/gn-api-sdk-node.git",
-    "moment": "~2.11.2"
+    "moment": "~2.24.0"
   }
 }
