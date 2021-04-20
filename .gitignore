@@ -4,4 +4,3 @@ npm-debug.log
 coverage/
 .idea/
 *.p12
-credentials.js
