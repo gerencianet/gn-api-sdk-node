@@ -1,6 +1,7 @@
 # gn-api-sdk-node
 
 > A nodejs module for integration of your backend with the payment services provided by [Gerencianet](http://gerencianet.com.br).
+
 > Um módulo nodejs para integrar seu backend com os serviços de pagamento da [Gerencianet](http://gerencianet.com.br).
 
 [![NPM](https://nodei.co/npm/gn-api-sdk-node.png?downloads=true&stars=true)](https://nodei.co/npm/gn-api-sdk-node/)
