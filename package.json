@@ -1,8 +1,8 @@
 {
   "name": "gn-api-sdk-node",
   "description": "Module for integration with Gerencianet API",
-  "version": "1.0.0",
-  "author": "Francisco Carvalho <f.thiene@gmail.com>",
+  "version": "2.0.0",
+  "author": "Gerencianet - Consultoria Tecnica | João Vitor Oliveira | Francisco Carvalho",
   "license": "MIT",
   "repository": "gerencianet/gn-api-sdk-node",
   "homepage": "https://github.com/gerencianet/gn-api-sdk-node",
@@ -13,12 +13,16 @@
     "sdk",
     "integração",
     "integration",
-    "api"
+    "api",
+    "bank slip",
+    "boleto bancario",
+    "credit card",
+    "cartao de credito",
+    "pix"
   ],
   "dependencies": {
     "q": "~1.5.1",
-    "request": "^2.83.0",
-    "request-debug": "~0.2.0",
+    "axios": "^0.21.1",
     "oauth": "0.9.15"
   },
   "devDependencies": {

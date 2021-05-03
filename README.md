@@ -1,7 +1,8 @@
 # gn-api-sdk-node
 
-> A nodejs module for integration of your backend with the payment services
-provided by [Gerencianet](http://gerencianet.com.br).
+> A nodejs module for integration of your backend with the payment services provided by [Gerencianet](http://gerencianet.com.br).
+
+> Um módulo nodejs para integrar seu backend com os serviços de pagamento da [Gerencianet](http://gerencianet.com.br).
 
 [![NPM](https://nodei.co/npm/gn-api-sdk-node.png?downloads=true&stars=true)](https://nodei.co/npm/gn-api-sdk-node/)
 
@@ -12,28 +13,22 @@ provided by [Gerencianet](http://gerencianet.com.br).
 [![npm version](https://badge.fury.io/js/gn-api-sdk-node.svg)](http://badge.fury.io/js/gn-api-sdk-node)
 
 
-## Installation
+## Instalação
 
 ```bash
 $ npm install gn-api-sdk-node
 ```
-## Tested with
 
-```
-node 4.4.0 and 4.4.4
-```
+## Uso Básico
 
-
-## Basic usage
-
-Require the module:
+Importe o módulo:
 
 ```js
 var Gerencianet = require('gn-api-sdk-node');
 ```
 
-Set your credentials and whether you want to use sandbox or not:
-
+Insira suas credenciais e defina se deseja usar o sandbox ou não.
+Você também pode usar o arquivo [examples/credentials.js](examples/credentials.js) de modelo.
 ```js
 var options = {
   client_id: 'your_client_id',
@@ -42,13 +37,13 @@ var options = {
 }
 ```
 
-Instantiate the module passing your options:
+Instancie o módulo passando as options:
 
 ```js
 var gerencianet = new Gerencianet(options);
 ```
 
-Create a charge:
+Crie uma cobrança:
 
 ```js
 var chargeInput = {
@@ -66,9 +61,9 @@ gerencianet
   .done();
 ```
 
-## Examples
+## Exemplos
 
-To run the examples, clone this repo and install the dependencies:
+Para executar os exemplos, clone este repo e instale as dependências:
 
 ```bash
 $ git clone git@github.com:gerencianet/gn-api-sdk-node.git
@@ -76,7 +71,7 @@ $ cd gn-api-sdk-node/examples
 $ npm install
 ```
 
-Set your oauth keys in credentials.js:
+Defina suas credenciais em credentials.js:
 
 ```js
 module.exports = {
@@ -85,25 +80,16 @@ module.exports = {
 }
 ```
 
-Then run the example you want:
+Em seguida, execute o exemplo que você deseja:
 
 ```bash
 $ node createCharge.js
 ```
 
-## Tests
 
-To run the test suite, first install the dependencies, then run `npm test`:
+## Documentação
 
-```bash
-$ cd gn-api-sdk-node/
-$ npm install
-$ npm test
-```
-
-## Additional documentation
-
-The full documentation with all available endpoints is in https://dev.gerencianet.com.br/.
+A documentação completa com todos os endpoints disponíveis você encontra em: https://dev.gerencianet.com.br/.
 
 ## Changelog
 
