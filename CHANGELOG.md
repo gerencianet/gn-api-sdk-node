@@ -1,3 +1,19 @@
+# 2.0.1
+
+- Melhoria do arquivo Credentials
+- Adicionada a tratativa para o ValidadeMtls
+
+# 2.0.0
+
+- Adicionado os endpoints do Pix
+- Novo modelo arquivo credentials
+- Adição das funções do Pix na chamada principal da sdk
+- Adicionada Autenticação PIX
+- Substituição do request pelo axios
+- Melhoria na leitura do certificado
+- Atualização dos exemplos
+- Nome das funções atualizadas e padronizadas
+
 # 1.0.0
 
 - Stable release

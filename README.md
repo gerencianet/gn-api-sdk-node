@@ -30,11 +30,24 @@ var Gerencianet = require('gn-api-sdk-node');
 Insira suas credenciais e defina se deseja usar o sandbox ou não.
 Você também pode usar o arquivo [examples/credentials.js](examples/credentials.js) de modelo.
 ```js
-var options = {
-  client_id: 'your_client_id',
-  client_secret: 'your_client_secret',
-  sandbox: true
-}
+module.exports = {
+	// PRODUÇÃO = false
+	// HOMOLOGAÇÃO = true
+	sandbox: false,
+
+	// CREDENCIAIS DE PRODUÇÃO
+	clientIdProducao: '',
+	clientSecretProducao: '',
+	pathCertProducao: '',
+
+	// CREDENCIAIS DE HOMOLOGAÇÃO
+	clientIdHomologacao: '',
+	clientSecretHomologacao: '',
+	pathCertHomologacao: '',
+
+	// VALIDAR MTLS?
+	validateMtls: false,
+};
 ```
 
 Instancie o módulo passando as options:
@@ -75,9 +88,23 @@ Defina suas credenciais em credentials.js:
 
 ```js
 module.exports = {
-  client_id: 'your_client_id',
-  client_secret: 'your_client_secret'
-}
+	// PRODUÇÃO = false
+	// HOMOLOGAÇÃO = true
+	sandbox: false,
+
+	// CREDENCIAIS DE PRODUÇÃO
+	clientIdProducao: '',
+	clientSecretProducao: '',
+	pathCertProducao: '',
+
+	// CREDENCIAIS DE HOMOLOGAÇÃO
+	clientIdHomologacao: '',
+	clientSecretHomologacao: '',
+	pathCertHomologacao: '',
+
+	// VALIDAR MTLS?
+	validateMtls: false,
+};
 ```
 
 Em seguida, execute o exemplo que você deseja:
