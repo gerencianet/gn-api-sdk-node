@@ -1,3 +1,8 @@
+# 2.0.2
+
+- Correção do exemplo: UpdateParcel
+- Correção do exemplo: GetInstallments
+
 # 2.0.1
 
 - Melhoria do arquivo Credentials
