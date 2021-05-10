@@ -5,7 +5,7 @@ var options = require('../../credentials');
 
 
 var params = {
-	type: 'visa',
+	brand: 'visa',
 	total: 5000
 }
 

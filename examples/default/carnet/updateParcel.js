@@ -5,12 +5,12 @@ var options = require('../../credentials');
 
 
 var params = {
-  id: 1008
+  id: 25093006,
+  parcel: 1
 }
 
 var body = {
-  parcel: 1,
-  expire_at: '2020-12-12'
+  expire_at: '2024-12-12'
 }
 
 var gerencianet = new Gerencianet(options);
