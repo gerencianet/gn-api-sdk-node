@@ -1,3 +1,7 @@
+# 2.0.3
+
+- Correção endpoint deletePlan
+
 # 2.0.2
 
 - Correção do exemplo: UpdateParcel
