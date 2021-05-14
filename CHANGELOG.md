@@ -1,3 +1,7 @@
+# 2.0.4
+
+- Correção na função req
+
 # 2.0.3
 
 - Correção endpoint deletePlan
