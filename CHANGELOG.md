@@ -1,3 +1,6 @@
+# 2.0.5
+- Correção do tratamento de responses
+
 # 2.0.4
 
 - Correção na função req
