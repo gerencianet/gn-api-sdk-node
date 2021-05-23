@@ -28,13 +28,9 @@ let body = {
     ]
 }
 
-let params = {
-    txid: "dt9BHlyzrb5jrFNAdfEDmDbVqVxdVpHgiO"
-}
-
 let gerencianet = new Gerencianet(options);
 
-gerencianet.pixCreateImmediateCharge(params, body)
+gerencianet.pixCreateImmediateCharge([], body)
     .then(console.log)
     .catch(console.log)
     .done();
