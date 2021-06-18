@@ -15,7 +15,7 @@ let body = {
 
 let gerencianet = new Gerencianet(options);
 
-gerencianet.pixSend(body)
+gerencianet.pixSend([], body)
     .then(console.log)
     .catch(console.log)
     .done();
