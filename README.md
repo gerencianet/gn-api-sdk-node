@@ -34,19 +34,9 @@ module.exports = {
 	// PRODUÇÃO = false
 	// HOMOLOGAÇÃO = true
 	sandbox: false,
-
-	// CREDENCIAIS DE PRODUÇÃO
-	clientIdProducao: '',
-	clientSecretProducao: '',
-	pathCertProducao: '',
-
-	// CREDENCIAIS DE HOMOLOGAÇÃO
-	clientIdHomologacao: '',
-	clientSecretHomologacao: '',
-	pathCertHomologacao: '',
-
-	// VALIDAR MTLS?
-	validateMtls: false,
+	client_id: 'seuClientId',
+	client_secret: 'seuClientSecret',
+	pix_cert: 'caminhoAteOCertificadoPix',
 };
 ```
 
@@ -69,9 +59,13 @@ var chargeInput = {
 
 gerencianet
   .createCharge({}, chargeInput)
-  .then(console.log)
-  .catch(console.log)
-  .done();
+      .then((resposta) => {
+        console.log(resposta)
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+    .done();
 ```
 
 ## Exemplos
@@ -91,19 +85,9 @@ module.exports = {
 	// PRODUÇÃO = false
 	// HOMOLOGAÇÃO = true
 	sandbox: false,
-
-	// CREDENCIAIS DE PRODUÇÃO
-	clientIdProducao: '',
-	clientSecretProducao: '',
-	pathCertProducao: '',
-
-	// CREDENCIAIS DE HOMOLOGAÇÃO
-	clientIdHomologacao: '',
-	clientSecretHomologacao: '',
-	pathCertHomologacao: '',
-
-	// VALIDAR MTLS?
-	validateMtls: false,
+	client_id: 'seuClientId',
+	client_secret: 'seuClientSecret',
+	pix_cert: 'caminhoAteOCertificadoPix',
 };
 ```
 

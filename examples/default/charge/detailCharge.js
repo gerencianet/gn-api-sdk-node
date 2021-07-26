@@ -12,6 +12,10 @@ var gerencianet = new Gerencianet(options);
 
 gerencianet
 	.detailCharge(params)
-	.then(console.log)
-	.catch(console.log)
+	.then((resposta) => {
+		console.log(resposta)
+	})
+	.catch((error) => {
+		console.log(error);
+	})
 	.done();

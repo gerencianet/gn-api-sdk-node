@@ -34,6 +34,10 @@ var gerencianet = new Gerencianet(options);
 
 gerencianet
   .oneStep([], body)
-  .then(console.log)
-  .catch(console.log)
+  .then((resposta) => {
+    console.log(resposta)
+  })
+  .catch((error) => {
+    console.log(error);
+  })
   .done();

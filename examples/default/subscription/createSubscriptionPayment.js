@@ -35,6 +35,10 @@ var gerencianet = new Gerencianet(options);
 
 gerencianet
   .paySubscription(params, body)
-  .then(console.log)
-  .catch(console.log)
-  .done();
+      .then((resposta) => {
+        console.log(resposta)
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+    .done();

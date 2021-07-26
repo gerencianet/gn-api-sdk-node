@@ -13,6 +13,10 @@ var gerencianet = new Gerencianet(options);
 
 gerencianet
   .settleCarnetParcel(params)
-  .then(console.log)
-  .catch(console.log)
-  .done();
+      .then((resposta) => {
+        console.log(resposta)
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+    .done();

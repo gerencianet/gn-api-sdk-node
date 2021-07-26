@@ -12,6 +12,10 @@ var gerencianet = new Gerencianet(options);
 
 gerencianet
   .cancelCarnet(params)
-  .then(console.log)
-  .catch(console.log)
-  .done();
+      .then((resposta) => {
+        console.log(resposta)
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+    .done();

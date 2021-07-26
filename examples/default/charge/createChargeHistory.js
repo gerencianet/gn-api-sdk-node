@@ -16,6 +16,10 @@ var gerencianet = new Gerencianet(options);
 
 gerencianet
   .createChargeHistory(params, body)
-  .then(console.log)
-  .catch(console.log)
-  .done();
+      .then((resposta) => {
+        console.log(resposta)
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+    .done();

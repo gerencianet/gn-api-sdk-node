@@ -31,6 +31,10 @@ var createSubscription = function (response) {
 gerencianet
   .createPlan({}, planBody)
   .then(createSubscription)
-  .then(console.log)
-  .catch(console.log)
-  .done();
+      .then((resposta) => {
+        console.log(resposta)
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+    .done();

@@ -16,9 +16,10 @@ var gerencianet = new Gerencianet(options);
 
 gerencianet
     .createSubscriptionHistory(params, body)
-.then((resposta) => {
-        console.log(resposta);
+    .then((resposta) => {
+        console.log(resposta)
     })
     .catch((error) => {
         console.log(error);
     })
+    .done();

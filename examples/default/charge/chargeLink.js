@@ -26,6 +26,10 @@ var gerencianet = new Gerencianet(options);
 
 gerencianet
   .chargeLink(params, body)
-  .then(console.log)
-  .catch(console.log)
-  .done();
+      .then((resposta) => {
+        console.log(resposta)
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+    .done();
