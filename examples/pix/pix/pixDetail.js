@@ -10,6 +10,9 @@ let params = {
 let gerencianet = new Gerencianet(options);
 
 gerencianet.pixDetail(params)
-    .then(console.log)
-    .catch(console.log)
-    .done();
+.then((resposta) => {
+        console.log(resposta);
+    })
+    .catch((error) => {
+        console.log(error);
+    })

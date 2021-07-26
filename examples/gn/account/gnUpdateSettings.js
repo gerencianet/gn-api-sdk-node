@@ -22,6 +22,9 @@ let body = {
 let gerencianet = new Gerencianet(options);
 
 gerencianet.pixUpdateSettings([],body)
-    .then(console.log)
-    .catch(console.log)
-    .done();
+.then((resposta) => {
+        console.log(resposta);
+    })
+    .catch((error) => {
+        console.log(error);
+    })

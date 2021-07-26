@@ -11,6 +11,9 @@ let params = {
 let gerencianet = new Gerencianet(options);
 
 gerencianet.pixListCharges(params)
-    .then(console.log)
-    .catch(console.log)
-    .done();
+.then((resposta) => {
+        console.log(resposta);
+    })
+    .catch((error) => {
+        console.log(error);
+    })

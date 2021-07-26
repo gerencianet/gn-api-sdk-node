@@ -6,6 +6,9 @@ let options = require('../../credentials');
 let gerencianet = new Gerencianet(options);
 
 gerencianet.gnListEvp()
-    .then(console.log)
-    .catch(console.log)
-    .done();
+.then((resposta) => {
+        console.log(resposta);
+    })
+    .catch((error) => {
+        console.log(error);
+    })

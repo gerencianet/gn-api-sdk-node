@@ -16,6 +16,9 @@ let params = {
 let gerencianet = new Gerencianet(options);
 
 gerencianet.pixDevolution(params, body)
-    .then(console.log)
-    .catch(console.log)
-    .done();
+.then((resposta) => {
+        console.log(resposta);
+    })
+    .catch((error) => {
+        console.log(error);
+    })
