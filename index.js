@@ -14,5 +14,9 @@ module.exports = function (options) {
 		credentials.validateMtls = options.validateMtls;
 	}
 
+	if (options.partner_token) {
+		credentials.partner_token = options.partner_token;
+	}
+
 	return new GnSdk(credentials);
 };

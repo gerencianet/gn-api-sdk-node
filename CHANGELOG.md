@@ -1,3 +1,9 @@
+# 2.0.7
+- Correção do tratamento interno
+
+# 2.0.6
+- Ajuste arquivo de credenciais
+
 # 2.0.5
 - Correção do tratamento de responses
 
