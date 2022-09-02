@@ -97,6 +97,31 @@ Em seguida, execute o exemplo que você deseja:
 $ node createCharge.js
 ```
 
+## Suporte ao Typescript
+
+Agora a SDK conta com suporte ao typescript:
+
+```typescript
+import Gerencianet, { GnSdk } from 'gn-api-sdk-node';
+
+const credentials = {
+  // PRODUÇÃO = false
+  // HOMOLOGAÇÃO = true
+  sandbox: false,
+  client_id: 'seuClientId',
+  client_secret: 'seuClientSecret',
+  pix_cert: 'caminhoAteOCertificadoPix',
+}
+
+const api:GnSdk = Gerencianet(credentials);
+
+async function main() {
+    const result = await api.detailCharge({ id: 1234567 });
+    console.log(result);
+}
+
+main();
+```
 
 ## Documentação
 
