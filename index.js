@@ -1,22 +1,21 @@
-'use strict';
+const Endpoints = require('./lib/endpoints')
+const constants = require('./lib/constants')
 
-var GnSdk = require('./lib/gn-sdk');
+class Gerencianet {
+	constructor(options) {
+		let methods = {}
 
-module.exports = function (options) {
-	let credentials = {
-		sandbox: options.sandbox,
-		client_id: options.client_id,
-		client_secret: options.client_secret,
-		pathCert: options.pix_cert,
-	};
+		Object.keys(constants.APIS).forEach((api) => {
+			Object.assign(methods, constants.APIS[api].ENDPOINTS)
+		})
 
-	if (options.validateMtls) {
-		credentials.validateMtls = options.validateMtls;
+		Object.keys(methods).forEach(function (api) {
+			Gerencianet.prototype[api] = function (params, body) {
+				let endpoints = new Endpoints(options, constants)
+				return endpoints.run(api, params, body)
+			}
+		})
 	}
+}
 
-	if (options.partner_token) {
-		credentials.partner_token = options.partner_token;
-	}
-
-	return new GnSdk(credentials);
-};
+module.exports = Gerencianet
