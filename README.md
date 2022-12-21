@@ -6,13 +6,6 @@
 
 [![NPM](https://nodei.co/npm/gn-api-sdk-node.png?downloads=true&stars=true)](https://nodei.co/npm/gn-api-sdk-node/)
 
-[![Build Status](https://travis-ci.org/gerencianet/gn-api-sdk-node.svg)](https://travis-ci.org/gerencianet/gn-api-sdk-node)
-[![Code Climate](https://codeclimate.com/github/gerencianet/gn-api-sdk-node/badges/gpa.svg)](https://codeclimate.com/github/gerencianet/gn-api-sdk-node)
-[![Test Coverage](https://codeclimate.com/github/gerencianet/gn-api-sdk-node/badges/coverage.svg)](https://codeclimate.com/github/gerencianet/gn-api-sdk-node/coverage)
-[![Dependency Status](https://david-dm.org/gerencianet/gn-api-sdk-node.svg)](https://david-dm.org/gerencianet/gn-api-sdk-node)
-[![npm version](https://badge.fury.io/js/gn-api-sdk-node.svg)](http://badge.fury.io/js/gn-api-sdk-node)
-
-
 ## Instalação
 
 ```bash
@@ -24,11 +17,12 @@ $ npm install gn-api-sdk-node
 Importe o módulo:
 
 ```js
-var Gerencianet = require('gn-api-sdk-node');
+const Gerencianet = require('gn-api-sdk-node')
 ```
 
 Insira suas credenciais e defina se deseja usar o sandbox ou não.
 Você também pode usar o arquivo [examples/credentials.js](examples/credentials.js) de modelo.
+
 ```js
 module.exports = {
 	// PRODUÇÃO = false
@@ -36,36 +30,37 @@ module.exports = {
 	sandbox: false,
 	client_id: 'seuClientId',
 	client_secret: 'seuClientSecret',
-	pix_cert: 'caminhoAteOCertificadoPix',
-};
+	certificate: 'caminho/Ate/O/Certificado/Pix',
+}
 ```
 
 Instancie o módulo passando as options:
 
 ```js
-var gerencianet = new Gerencianet(options);
+const gerencianet = new Gerencianet(options)
 ```
 
 Crie uma cobrança:
 
 ```js
-var chargeInput = {
-  items: [{
-    name: 'Product A',
-    value: 1000,
-    amount: 2
-  }]
+let chargeInput = {
+	items: [
+		{
+			name: 'Product A',
+			value: 1000,
+			amount: 2,
+		},
+	],
 }
 
 gerencianet
-  .createCharge({}, chargeInput)
-      .then((resposta) => {
-        console.log(resposta)
-    })
-    .catch((error) => {
-        console.log(error);
-    })
-    .done();
+	.createCharge({}, chargeInput)
+	.then((resposta) => {
+		console.log(resposta)
+	})
+	.catch((error) => {
+		console.log(error)
+	})
 ```
 
 ## Exemplos
@@ -87,8 +82,8 @@ module.exports = {
 	sandbox: false,
 	client_id: 'seuClientId',
 	client_secret: 'seuClientSecret',
-	pix_cert: 'caminhoAteOCertificadoPix',
-};
+	certificate: 'caminhoAteOCertificadoPix',
+}
 ```
 
 Em seguida, execute o exemplo que você deseja:
@@ -96,7 +91,6 @@ Em seguida, execute o exemplo que você deseja:
 ```bash
 $ node createCharge.js
 ```
-
 
 ## Documentação
 
