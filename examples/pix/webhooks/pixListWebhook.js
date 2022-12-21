@@ -1,18 +1,14 @@
 const Gerencianet = require('gn-api-sdk-node')
 const options = require('../../credentials')
 
-let body = {
-	valor: '7.89',
-}
-
 let params = {
-	e2eId: 'E18236120202104191813s0326120V4K',
-	id: '101',
+	inicio: '2022-01-22T16:01:35Z',
+	fim: '2022-11-30T20:10:00Z',
 }
 
 const gerencianet = new Gerencianet(options)
 
-gerencianet.pixDevolution(params, body)
+gerencianet.pixListWebhook(params)
 	.then((resposta) => {
 		console.log(resposta)
 	})

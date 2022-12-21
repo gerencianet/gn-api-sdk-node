@@ -4,5 +4,5 @@ module.exports = {
 	sandbox: false,
 	client_id: 'seuClientId',
 	client_secret: 'seuClientSecret',
-	pix_cert: 'caminhoAteOCertificadoPix',
-};
+	certificate: 'caminhoAteOCertificadoPix',
+}

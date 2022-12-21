@@ -1,18 +1,16 @@
-'use strict';
-
-let Gerencianet = require('gn-api-sdk-node');
-let options = require('../../credentials');
+const Gerencianet = require('gn-api-sdk-node')
+const options = require('../../credentials')
 
 let params = {
-    id: "95"
+	id: '95',
 }
 
-let gerencianet = new Gerencianet(options);
+const gerencianet = new Gerencianet(options)
 
 gerencianet.pixGenerateQRCode(params)
-.then((resposta) => {
-        console.log(resposta);
-    })
-    .catch((error) => {
-        console.log(error);
-    })
+	.then((resposta) => {
+		console.log(resposta)
+	})
+	.catch((error) => {
+		console.log(error)
+	})

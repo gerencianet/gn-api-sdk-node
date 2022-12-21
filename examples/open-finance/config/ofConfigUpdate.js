@@ -1,18 +1,14 @@
 const Gerencianet = require('gn-api-sdk-node')
 const options = require('../../credentials')
 
-let body = {
-	valor: '7.89',
-}
-
-let params = {
-	e2eId: 'E18236120202104191813s0326120V4K',
-	id: '101',
-}
-
 const gerencianet = new Gerencianet(options)
 
-gerencianet.pixDevolution(params, body)
+let body = {
+	redirectURL: 'https:/suaUrl.com.br/redirect',
+	webhookURL: 'https://suaUrl.com.br/webhook',
+}
+
+gerencianet.ofConfigUpdate([], body)
 	.then((resposta) => {
 		console.log(resposta)
 	})

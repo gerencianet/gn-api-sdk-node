@@ -1,18 +1,19 @@
 const Gerencianet = require('gn-api-sdk-node')
-const options = require('../../credentials')
+let options = require('../../credentials')
+
+options['validateMtls'] = false
 
 let body = {
-	valor: '7.89',
+	webhookUrl: 'https://exemplo-pix/webhook',
 }
 
 let params = {
-	e2eId: 'E18236120202104191813s0326120V4K',
-	id: '101',
+	chave: 'SUACHAVEPIX',
 }
 
 const gerencianet = new Gerencianet(options)
 
-gerencianet.pixDevolution(params, body)
+gerencianet.pixConfigWebhook(params, body)
 	.then((resposta) => {
 		console.log(resposta)
 	})

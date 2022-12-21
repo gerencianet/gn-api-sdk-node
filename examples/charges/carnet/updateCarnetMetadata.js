@@ -1,18 +1,18 @@
 const Gerencianet = require('gn-api-sdk-node')
 const options = require('../../credentials')
 
-let body = {
-	valor: '7.89',
+let params = {
+	id: 1004,
 }
 
-let params = {
-	e2eId: 'E18236120202104191813s0326120V4K',
-	id: '101',
+let body = {
+	notification_url: 'http://yourdomain.com',
+	custom_id: 'my_new_id',
 }
 
 const gerencianet = new Gerencianet(options)
 
-gerencianet.pixDevolution(params, body)
+gerencianet.updateCarnetMetadata(params, body)
 	.then((resposta) => {
 		console.log(resposta)
 	})

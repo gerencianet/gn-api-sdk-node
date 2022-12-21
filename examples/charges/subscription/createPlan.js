@@ -1,18 +1,17 @@
 const Gerencianet = require('gn-api-sdk-node')
 const options = require('../../credentials')
 
-let body = {
-	valor: '7.89',
-}
+let params = {}
 
-let params = {
-	e2eId: 'E18236120202104191813s0326120V4K',
-	id: '101',
+let body = {
+	name: 'My first plan',
+	repeats: 24,
+	interval: 2,
 }
 
 const gerencianet = new Gerencianet(options)
 
-gerencianet.pixDevolution(params, body)
+gerencianet.createPlan(params, body)
 	.then((resposta) => {
 		console.log(resposta)
 	})

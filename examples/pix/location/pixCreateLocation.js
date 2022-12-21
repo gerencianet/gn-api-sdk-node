@@ -1,18 +1,16 @@
-'use strict';
-
-let Gerencianet = require('gn-api-sdk-node');
-let options = require('../../credentials');
+const Gerencianet = require('gn-api-sdk-node')
+const options = require('../../credentials')
 
 let body = {
-    tipoCob: "cob"
+	tipoCob: 'cob',
 }
 
-let gerencianet = new Gerencianet(options);
+const gerencianet = new Gerencianet(options)
 
-gerencianet.pixCreateLocation([],body)
-.then((resposta) => {
-        console.log(resposta);
-    })
-    .catch((error) => {
-        console.log(error);
-    })
+gerencianet.pixCreateLocation([], body)
+	.then((resposta) => {
+		console.log(resposta)
+	})
+	.catch((error) => {
+		console.log(error)
+	})

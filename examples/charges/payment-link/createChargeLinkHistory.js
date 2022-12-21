@@ -1,18 +1,17 @@
 const Gerencianet = require('gn-api-sdk-node')
 const options = require('../../credentials')
 
-let body = {
-	valor: '7.89',
+let params = {
+	id: 1001,
 }
 
-let params = {
-	e2eId: 'E18236120202104191813s0326120V4K',
-	id: '101',
+let body = {
+	description: 'This charge was not fully paid',
 }
 
 const gerencianet = new Gerencianet(options)
 
-gerencianet.pixDevolution(params, body)
+gerencianet.createChargeHistory(params, body)
 	.then((resposta) => {
 		console.log(resposta)
 	})
