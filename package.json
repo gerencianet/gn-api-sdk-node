@@ -1,7 +1,7 @@
 {
 	"name": "gn-api-sdk-node",
 	"description": "Module for integration with Gerencianet API",
-	"version": "3.0.1",
+	"version": "3.0.2",
 	"author": "Gerencianet - Consultoria Tecnica | Palloma Brito | João Vitor Oliveira",
 	"license": "MIT",
 	"repository": "gerencianet/gn-api-sdk-node",
@@ -22,7 +22,7 @@
 		"Open Finance"
 	],
 	"dependencies": {
-		"axios": "^0.21.1",
+		"axios": "^1.2.1",
 		"randomstring": "^1.2.2"
 	},
 	"scripts": {
