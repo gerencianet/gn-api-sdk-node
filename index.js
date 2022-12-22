@@ -3,6 +3,11 @@ const constants = require('./lib/constants')
 
 class Gerencianet {
 	constructor(options) {
+
+		if (options.pix_cert) {
+			options.certificate = options.pix_cert
+		}
+
 		let methods = {}
 
 		Object.keys(constants.APIS).forEach((api) => {
