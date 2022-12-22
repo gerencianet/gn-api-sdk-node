@@ -6,12 +6,20 @@ let params = {
 }
 
 let body = {
-	billet_discount: 0,
-	card_discount: 0,
-	message: '',
-	expire_at: '2022-12-01',
-	request_delivery_address: false,
-	payment_method: 'all',
+	settings: {
+		billet_discount: 1,
+		message: '',
+		expire_at: '2023-12-01',
+		request_delivery_address: false,
+		payment_method: 'all',
+	},
+	items: [
+		{
+			name: 'Product 1',
+			value: 500,
+			amount: 1,
+		},
+	],
 }
 
 const gerencianet = new Gerencianet(options)

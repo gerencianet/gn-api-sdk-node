@@ -12,14 +12,15 @@ let body = {
 	valor: {
 		original: '123.45',
 	},
-	chave: 'SUACHAVEPIX', // Informe sua chave Pix cadastrada na gerencianet	infoAdicionais: [
+	chave: 'SUACHAVEPIX', // Informe sua chave Pix cadastrada na gerencianet	
+	infoAdicionais: [
 		{
-	nome: 'Pagamento em',
-		valor: 'NOME DO SEU ESTABELECIMENTO',
+			nome: 'Pagamento em',
+			valor: 'NOME DO SEU ESTABELECIMENTO',
 		},
-{
-	nome: 'Pedido',
-		valor: 'NUMERO DO PEDIDO DO CLIENTE',
+		{
+			nome: 'Pedido',
+			valor: 'NUMERO DO PEDIDO DO CLIENTE',
 		},
 	],
 }

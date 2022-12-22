@@ -7,7 +7,7 @@ let params = {
 
 const gerencianet = new Gerencianet(options)
 
-gerencianet.createReport(params, [])
+gerencianet.detailReport(params, [])
 	.then((resposta) => {
 		console.log(resposta)
 	})

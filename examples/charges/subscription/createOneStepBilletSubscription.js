@@ -29,5 +29,8 @@ let body = {
 
 const gerencianet = new Gerencianet(options)
 
-let subscription = gerencianet.oneStepSubscription(params, body)
-console.log(subscription)
+gerencianet.oneStepSubscription(params, body).then((resposta) => {
+	console.log(resposta)
+}).catch((error) => {
+	console.log(error)
+})

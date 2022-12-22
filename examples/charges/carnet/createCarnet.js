@@ -18,6 +18,7 @@ let body = {
 	},
 	repeats: 12,
 	split_items: false,
+	expire_at: '2023-01-01'
 }
 
 const gerencianet = new Gerencianet(options)

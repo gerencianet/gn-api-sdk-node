@@ -22,5 +22,8 @@ let body = {
 
 const gerencianet = new Gerencianet(options)
 
-let a = gerencianet.oneStepSubscriptionLink(params, body)
-console.log(a)
+gerencianet.oneStepSubscriptionLink(params, body).then((resposta) => {
+	console.log(resposta)
+}).catch((error) => {
+	console.log(error)
+})
