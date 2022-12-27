@@ -1,7 +1,7 @@
 {
 	"name": "gn-api-sdk-node",
 	"description": "Module for integration with Gerencianet API",
-	"version": "3.0.2",
+	"version": "3.0.3",
 	"author": "Gerencianet - Consultoria Tecnica | Palloma Brito | João Vitor Oliveira",
 	"license": "MIT",
 	"repository": "gerencianet/gn-api-sdk-node",
